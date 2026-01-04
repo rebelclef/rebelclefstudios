@@ -1,48 +1,45 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-
-// If you prefer: import { projects } from "../src/content/projects";
-// NOTE: Import paths can be finicky in Vercel functions depending on your setup.
-// If this import gives you trouble, see the note below.
-import { projects } from "../src/content/projects";
+import fs from "node:fs/promises";
+import path from "node:path";
 
 function uniq<T>(arr: T[]) {
   return Array.from(new Set(arr));
 }
 
-function extractIdsFromProjects() {
+async function readProjectsFile(): Promise<string> {
+  // Try a few common locations/names so you don't have to be perfect
+  const candidates = [
+    path.join(process.cwd(), "src", "content", "projects.ts"),
+    path.join(process.cwd(), "src", "content", "projects.tsx"),
+    path.join(process.cwd(), "src", "content", "projects", "index.ts"),
+    path.join(process.cwd(), "src", "content", "projects", "index.tsx"),
+  ];
+
+  for (const p of candidates) {
+    try {
+      return await fs.readFile(p, "utf8");
+    } catch {
+      // keep trying
+    }
+  }
+
+  throw new Error(
+    `Could not read projects file. Tried:\n${candidates.map((c) => `- ${c}`).join("\n")}`
+  );
+}
+
+function extractIdsFromProjectsSource(srcText: string) {
   const yt: string[] = [];
   const vm: string[] = [];
 
-  for (const p of projects as any[]) {
-    // Option A: explicit IDs (recommended)
-    if (p.platformIds?.youtube?.length) yt.push(...p.platformIds.youtube);
-    if (p.platformIds?.vimeo?.length) vm.push(...p.platformIds.vimeo);
+  // YouTube embed: https://www.youtube.com/embed/VIDEO_ID
+  for (const m of srcText.matchAll(/youtube\.com\/embed\/([a-zA-Z0-9_-]+)/g)) {
+    if (m[1]) yt.push(m[1]);
+  }
 
-    // Option B: derive from embed URLs you already have (optional)
-    const urls: string[] = [];
-
-    if (p.embedUrl) urls.push(p.embedUrl);
-    if (p.heroEmbedUrl) urls.push(p.heroEmbedUrl);
-
-    if (Array.isArray(p.videos)) {
-      for (const v of p.videos) if (v?.embedUrl) urls.push(v.embedUrl);
-    }
-
-    if (Array.isArray(p.videoSections)) {
-      for (const s of p.videoSections) {
-        for (const v of s?.videos || []) if (v?.embedUrl) urls.push(v.embedUrl);
-      }
-    }
-
-    for (const u of urls) {
-      // YouTube embed: https://www.youtube.com/embed/VIDEO_ID
-      const y = u.match(/youtube\.com\/embed\/([a-zA-Z0-9_-]+)/);
-      if (y?.[1]) yt.push(y[1]);
-
-      // Vimeo embed: https://player.vimeo.com/video/123456789
-      const v = u.match(/vimeo\.com\/video\/(\d+)/);
-      if (v?.[1]) vm.push(v[1]);
-    }
+  // Vimeo embed: https://player.vimeo.com/video/123456789
+  for (const m of srcText.matchAll(/vimeo\.com\/video\/(\d+)/g)) {
+    if (m[1]) vm.push(m[1]);
   }
 
   return { youtubeIds: uniq(yt), vimeoIds: uniq(vm) };
@@ -51,7 +48,6 @@ function extractIdsFromProjects() {
 async function fetchYouTubeViews(youtubeIds: string[], apiKey: string) {
   if (!youtubeIds.length) return 0;
 
-  // YouTube API supports up to 50 IDs per request.
   let total = 0;
 
   for (let i = 0; i < youtubeIds.length; i += 50) {
@@ -62,9 +58,12 @@ async function fetchYouTubeViews(youtubeIds: string[], apiKey: string) {
       `&key=${encodeURIComponent(apiKey)}`;
 
     const res = await fetch(url);
-    if (!res.ok) throw new Error(`YouTube API error: ${res.status}`);
-    const json: any = await res.json();
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      throw new Error(`YouTube API error: ${res.status} ${body}`);
+    }
 
+    const json: any = await res.json();
     for (const item of json.items || []) {
       const vc = item?.statistics?.viewCount;
       if (vc != null) total += Number(vc);
@@ -77,12 +76,8 @@ async function fetchYouTubeViews(youtubeIds: string[], apiKey: string) {
 async function fetchVimeoViews(vimeoIds: string[], token: string) {
   if (!vimeoIds.length) return 0;
 
-  // Vimeo lets you request multiple via uris=
-  // e.g. /videos/123,/videos/456 and select fields=uri,stats.plays
-  // (This typically requires the "stats" capability on the token.)
   let total = 0;
 
-  // Keep chunks modest
   for (let i = 0; i < vimeoIds.length; i += 20) {
     const chunk = vimeoIds.slice(i, i + 20);
     const uris = chunk.map((id) => `/videos/${id}`).join(",");
@@ -95,7 +90,11 @@ async function fetchVimeoViews(vimeoIds: string[], token: string) {
       headers: { Authorization: `Bearer ${token}` },
     });
 
-    if (!res.ok) throw new Error(`Vimeo API error: ${res.status}`);
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      throw new Error(`Vimeo API error: ${res.status} ${body}`);
+    }
+
     const json: any = await res.json();
 
     for (const v of json.data || []) {
@@ -119,7 +118,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       });
     }
 
-    const { youtubeIds, vimeoIds } = extractIdsFromProjects();
+    const projectsText = await readProjectsFile();
+    const { youtubeIds, vimeoIds } = extractIdsFromProjectsSource(projectsText);
 
     const [ytTotal, vmTotal] = await Promise.all([
       apiKey ? fetchYouTubeViews(youtubeIds, apiKey) : Promise.resolve(0),
@@ -128,7 +128,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const total = ytTotal + vmTotal;
 
-    // Cache at the edge so you don't burn API quota on every page load
     res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate=86400");
 
     return res.status(200).json({
@@ -139,6 +138,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       updatedAt: new Date().toISOString(),
     });
   } catch (e: any) {
-    return res.status(500).json({ error: e?.message || "Unknown error" });
+    return res.status(500).json({
+      error: e?.message || "Unknown error",
+    });
   }
 }

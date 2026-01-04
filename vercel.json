@@ -2,7 +2,7 @@
   "rewrites": [{ "source": "/(.*)", "destination": "/" }],
   "functions": {
     "api/viewcount.ts": {
-      "includeFiles": "src/content/projects.ts"
+      "includeFiles": "src/content/**"
     }
   }
 }

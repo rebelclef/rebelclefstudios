@@ -24,7 +24,9 @@ async function readProjectsFile(): Promise<string> {
   }
 
   throw new Error(
-    `Could not read projects file. Tried:\n${candidates.map((c) => `- ${c}`).join("\n")}`
+    `Could not read projects file. Tried:\n${candidates
+      .map((c) => `- ${c}`)
+      .join("\n")}`
   );
 }
 
@@ -107,6 +109,16 @@ async function fetchVimeoViews(vimeoIds: string[], token: string) {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // ✅ CORS (safe even if you end up only using same-origin)
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // ✅ Handle preflight
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   try {
     const apiKey = process.env.YOUTUBE_API_KEY;
     const vimeoToken = process.env.VIMEO_ACCESS_TOKEN;
@@ -128,6 +140,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const total = ytTotal + vmTotal;
 
+    // ✅ Edge cache (keeps API quota sane)
     res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate=86400");
 
     return res.status(200).json({

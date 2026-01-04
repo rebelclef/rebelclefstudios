@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { projects } from "../content/projects";
 
+type SortMode = "newest" | "oldest" | "a-z";
+
 export default function Work() {
   const [search, setSearch] = useState("");
-  const [sort, setSort] = useState<"newest" | "a-z">("newest");
+  const [sort, setSort] = useState<SortMode>("newest");
 
   const filtered = useMemo(() => {
     const term = search.trim().toLowerCase();
@@ -19,10 +21,6 @@ export default function Work() {
         );
       })
       .sort((a, b) => {
-        if (sort === "a-z") {
-          return a.title.localeCompare(b.title);
-        }
-
         // newest first (by date, then year)
         const dateValue = (p: typeof projects[number]) => {
           if (p.date) {
@@ -33,6 +31,12 @@ export default function Work() {
           return 0;
         };
 
+        if (sort === "a-z") {
+          return a.title.localeCompare(b.title);
+        }
+        if (sort === "oldest") {
+          return dateValue(a) - dateValue(b);
+        }
         return dateValue(b) - dateValue(a);
       });
 
@@ -60,6 +64,7 @@ export default function Work() {
             className="w-full min-w-[160px] rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-800 shadow-sm focus:border-[#284a9c] focus:outline-none focus:ring-2 focus:ring-[#284a9c]/20 sm:w-auto"
           >
             <option value="newest">Sort: Newest</option>
+            <option value="oldest">Sort: Oldest</option>
             <option value="a-z">Sort: A–Z</option>
           </select>
         </div>

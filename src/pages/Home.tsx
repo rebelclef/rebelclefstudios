@@ -19,6 +19,9 @@ export default function Home() {
 
   const rafRef = useRef<number | null>(null);
 
+  // ✅ Hosted hero video URL (set in .env.local and in Vercel env vars)
+  const HERO_URL = import.meta.env.VITE_HERO_URL as string | undefined;
+
   // ✅ Paste your REEL EMBED URL here:
   const REEL_EMBED_URL =
     "https://www.youtube.com/embed/MZJBQ75lG4E?autoplay=1&rel=0&modestbranding=1";
@@ -127,12 +130,13 @@ export default function Home() {
         >
           <video
             className="h-full w-full object-cover"
-            src="/hero.mp4"
+            src={HERO_URL || "/hero.mp4"}
             poster="/hero-poster.jpg"
             autoPlay
             muted
             loop
             playsInline
+            preload="auto"
           />
         </div>
 
@@ -207,7 +211,10 @@ export default function Home() {
                   </button>
                 </div>
 
-                <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
+                <div
+                  className="relative w-full"
+                  style={{ paddingTop: "56.25%" }}
+                >
                   <iframe
                     className="absolute inset-0 h-full w-full"
                     src={REEL_EMBED_URL}
@@ -268,20 +275,13 @@ export default function Home() {
       </section>
 
       {/* BOTTOM IMAGE + TEXT */}
-      <section
-        ref={bottomSectionRef}
-        className="relative overflow-hidden"
-      >
+      <section ref={bottomSectionRef} className="relative overflow-hidden">
         <div className="absolute inset-0">
           <div
             ref={bottomLayerRef}
             className="absolute inset-0 will-change-transform"
           >
-            <img
-              src="/home-bottom.jpg"
-              alt=""
-              className="h-full w-full object-cover"
-            />
+            <img src="/home-bottom.jpg" alt="" className="h-full w-full object-cover" />
           </div>
           <div className="absolute inset-0 bg-black/40" />
         </div>

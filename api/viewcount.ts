@@ -3,7 +3,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 // If you prefer: import { projects } from "../src/content/projects";
 // NOTE: Import paths can be finicky in Vercel functions depending on your setup.
 // If this import gives you trouble, see the note below.
-import { projects } from "../src/content/projects.ts";
+import { projects } from "../src/content/projects";
 
 function uniq<T>(arr: T[]) {
   return Array.from(new Set(arr));

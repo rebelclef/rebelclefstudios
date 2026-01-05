@@ -200,7 +200,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const youtubePlaylistIds = uniq(data.youtubePlaylistIds);
     const vimeoIds = uniq(data.vimeoIds);
     
-    console.log(`[ViewCount] Found ${youtubeIds.length} unique YouTube IDs.`);
+    console.log(`[ViewCount] Found ${youtubeIds.length} unique YouTube IDs (v2).`);
     // Debug: Check for specific new IDs
     if (youtubeIds.includes("IMAZEW-cnr4")) console.log("[ViewCount] ✅ Found ID: IMAZEW-cnr4");
     else console.log("[ViewCount] ❌ Missing ID: IMAZEW-cnr4");

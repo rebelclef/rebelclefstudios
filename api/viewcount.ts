@@ -1,7 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { projects } from "../src/content/projects";
 
-
 function uniq<T>(arr: T[]) {
   return Array.from(new Set(arr));
 }
@@ -51,8 +50,8 @@ function getIdsFromProjects(): CollectedIds {
     }
   };
 
-  // Iterate over the statically imported projects array
-  for (const p of projects as any[]) {
+  const list = Array.isArray(projects) ? projects : [];
+  for (const p of list) {
     takeUrl(p.embedUrl);
     takeUrl(p.heroEmbedUrl);
     if (Array.isArray(p.videos)) {

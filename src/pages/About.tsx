@@ -18,6 +18,7 @@ export default function About() {
   // ✅ total views counter
   const [views, setViews] = useState<number | null>(null);
   const [loadingViews, setLoadingViews] = useState(true);
+  const [fetchError, setFetchError] = useState<string | null>(null);
   const [showLogos, setShowLogos] = useState(false);
 
   useEffect(() => {
@@ -73,7 +74,10 @@ export default function About() {
             });
 
             if (r.status === 304) throw new Error("304 (no body)");
-            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            if (!r.ok) {
+              const errBody = await r.json().catch(() => ({}));
+              throw new Error(errBody.error || `HTTP ${r.status}`);
+            }
 
             data = (await r.json()) as ViewcountResponse;
             lastErr = undefined;
@@ -98,6 +102,7 @@ export default function About() {
       } catch (err) {
         if (cancelled) return;
         console.warn("viewcount fetch failed:", err);
+        setFetchError(String(err));
         setViews(null);
       } finally {
         if (cancelled) return;
@@ -221,7 +226,9 @@ export default function About() {
                   </div>
                 </div>
               ) : (
-                "views and counting…"
+                <span title={fetchError || "Error loading views"}>
+                  views and counting… {fetchError && <span className="text-sm text-red-500 block opacity-50">(API Error)</span>}
+                </span>
               )}
             </h1>
           </div>

@@ -2518,27 +2518,4 @@ credits: [
     { role: "Announcer", name: "Chris Parker" },
   ],
   },
-  {
-    title: "Siri, will you marry me?",
-    slug: makeSlug("Siri, will you marry me?"),
-    date: "2012-12-17",
-    year: 2012,
-    tags: ["Original", "Parody",],
-    embedUrl: "https://www.youtube.com/embed/d9aqUMgVbSc",
-    thumbnailUrl: "/thumbnails/LaughPong_MemesOfTheInternet.jpg",
-    description: "Memes of the Internet",
-    longDescription: `Inspired by Animaniacs - [Nations Of The World](https://tinyurl.com/47jm7563)`,
-
-credits: [
-    { role: "Produced by", name: "Cinesaurus" },
-    { role: "Directed by", name: "Forest Gibson" },
-    { role: "Edited by", name: "David Zimmermann" },
-    { role: "Lyrics", name: "Rob Whitehead" },
-    { role: "Performed by", name: "Forest Gibson" },
-    { role: "Animation", name: "David Zimmermann" },
-    { role: "Intro Animation", name: "Steven Hudson" },
-    { role: "Music by", name: "John K. Stark" },
-    { role: "Announcer", name: "Chris Parker" },
-  ],
-  },
 ];

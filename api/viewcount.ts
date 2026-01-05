@@ -1,51 +1,79 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import fs from "node:fs/promises";
-import path from "node:path";
+import { projects } from "../src/content/projects";
+
 
 function uniq<T>(arr: T[]) {
   return Array.from(new Set(arr));
 }
 
-async function readProjectsFile(): Promise<string> {
-  // Try a few common locations/names so you don't have to be perfect
-  const candidates = [
-    path.join(process.cwd(), "src", "content", "projects.ts"),
-    path.join(process.cwd(), "src", "content", "projects.tsx"),
-    path.join(process.cwd(), "src", "content", "projects", "index.ts"),
-    path.join(process.cwd(), "src", "content", "projects", "index.tsx"),
-  ];
+type CollectedIds = {
+  youtubeIds: string[];
+  youtubePlaylistIds: string[];
+  vimeoIds: string[];
+};
 
-  for (const p of candidates) {
+function getIdsFromProjects(): CollectedIds {
+  const youtubeIds = new Set<string>();
+  const youtubeLists = new Set<string>();
+  const vimeoIds = new Set<string>();
+
+  const takeUrl = (url?: string) => {
+    if (!url) return;
     try {
-      return await fs.readFile(p, "utf8");
+      const u = new URL(url);
+      const host = u.hostname;
+      const path = u.pathname;
+
+      if (host.includes("youtube.com")) {
+        if (path.startsWith("/embed/videoseries")) {
+          const list = u.searchParams.get("list");
+          if (list) youtubeLists.add(list);
+          return;
+        }
+        const m = path.match(/\/embed\/([a-zA-Z0-9_-]+)/);
+        if (m?.[1]) {
+          youtubeIds.add(m[1]);
+          return;
+        }
+      }
+
+      if (host.includes("youtu.be")) {
+        const m = path.match(/\/([a-zA-Z0-9_-]{6,15})/);
+        if (m?.[1]) youtubeIds.add(m[1]);
+      }
+
+      if (host.includes("vimeo.com")) {
+        const m = path.match(/\/video\/(\d+)/);
+        if (m?.[1]) vimeoIds.add(m[1]);
+      }
     } catch {
-      // keep trying
+      // ignore
+    }
+  };
+
+  // Iterate over the statically imported projects array
+  for (const p of projects as any[]) {
+    takeUrl(p.embedUrl);
+    takeUrl(p.heroEmbedUrl);
+    if (Array.isArray(p.videos)) {
+      for (const v of p.videos) takeUrl(v?.embedUrl);
+    }
+    if (Array.isArray(p.videoSections)) {
+      for (const sec of p.videoSections) {
+        if (Array.isArray(sec?.videos)) {
+          for (const v of sec.videos) takeUrl(v?.embedUrl);
+        }
+      }
     }
   }
 
-  throw new Error(
-    `Could not read projects file. Tried:\n${candidates
-      .map((c) => `- ${c}`)
-      .join("\n")}`
-  );
+  return {
+    youtubeIds: Array.from(youtubeIds),
+    youtubePlaylistIds: Array.from(youtubeLists),
+    vimeoIds: Array.from(vimeoIds),
+  };
 }
 
-function extractIdsFromProjectsSource(srcText: string) {
-  const yt: string[] = [];
-  const vm: string[] = [];
-
-  // YouTube embed: https://www.youtube.com/embed/VIDEO_ID
-  for (const m of srcText.matchAll(/youtube\.com\/embed\/([a-zA-Z0-9_-]+)/g)) {
-    if (m[1]) yt.push(m[1]);
-  }
-
-  // Vimeo embed: https://player.vimeo.com/video/123456789
-  for (const m of srcText.matchAll(/vimeo\.com\/video\/(\d+)/g)) {
-    if (m[1]) vm.push(m[1]);
-  }
-
-  return { youtubeIds: uniq(yt), vimeoIds: uniq(vm) };
-}
 
 async function fetchYouTubeViews(youtubeIds: string[], apiKey: string) {
   if (!youtubeIds.length) return 0;
@@ -56,7 +84,7 @@ async function fetchYouTubeViews(youtubeIds: string[], apiKey: string) {
     const chunk = youtubeIds.slice(i, i + 50);
     const url =
       "https://www.googleapis.com/youtube/v3/videos" +
-      `?part=statistics&id=${encodeURIComponent(chunk.join(","))}` +
+      `?part=statistics&id=${chunk.join(",")}` +
       `&key=${encodeURIComponent(apiKey)}`;
 
     const res = await fetch(url);
@@ -108,6 +136,42 @@ async function fetchVimeoViews(vimeoIds: string[], token: string) {
   return total;
 }
 
+async function fetchYouTubePlaylistVideoIds(
+  playlistIds: string[],
+  apiKey: string
+) {
+  if (!playlistIds.length) return [];
+  const videoIds: string[] = [];
+
+  for (const playlistId of playlistIds) {
+    let pageToken: string | undefined;
+    do {
+      const url =
+        "https://www.googleapis.com/youtube/v3/playlistItems" +
+        `?part=contentDetails&maxResults=50&playlistId=${encodeURIComponent(
+          playlistId
+        )}` +
+        (pageToken ? `&pageToken=${encodeURIComponent(pageToken)}` : "") +
+        `&key=${encodeURIComponent(apiKey)}`;
+
+      const res = await fetch(url);
+      if (!res.ok) {
+        const body = await res.text().catch(() => "");
+        throw new Error(`YouTube Playlist API error: ${res.status} ${body}`);
+      }
+
+      const json: any = await res.json();
+      for (const item of json.items || []) {
+        const vid = item?.contentDetails?.videoId;
+        if (vid) videoIds.push(vid);
+      }
+      pageToken = json.nextPageToken;
+    } while (pageToken);
+  }
+
+  return uniq(videoIds);
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // ✅ CORS (safe even if you end up only using same-origin)
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -130,24 +194,44 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       });
     }
 
-    const projectsText = await readProjectsFile();
-    const { youtubeIds, vimeoIds } = extractIdsFromProjectsSource(projectsText);
+    // ✅ Use static import data
+    const data = getIdsFromProjects();
+    const youtubeIds = uniq(data.youtubeIds);
+    const youtubePlaylistIds = uniq(data.youtubePlaylistIds);
+    const vimeoIds = uniq(data.vimeoIds);
+    
+    console.log(`[ViewCount] Found ${youtubeIds.length} unique YouTube IDs.`);
+    // Debug: Check for specific new IDs
+    if (youtubeIds.includes("IMAZEW-cnr4")) console.log("[ViewCount] ✅ Found ID: IMAZEW-cnr4");
+    else console.log("[ViewCount] ❌ Missing ID: IMAZEW-cnr4");
+    if (youtubeIds.includes("d9aqUMgVbSc")) console.log("[ViewCount] ✅ Found ID: d9aqUMgVbSc");
+
+    const playlistVideoIds =
+      apiKey && youtubePlaylistIds.length
+        ? await fetchYouTubePlaylistVideoIds(youtubePlaylistIds, apiKey)
+        : [];
+    const allYoutubeIds = uniq([...youtubeIds, ...playlistVideoIds]);
 
     const [ytTotal, vmTotal] = await Promise.all([
-      apiKey ? fetchYouTubeViews(youtubeIds, apiKey) : Promise.resolve(0),
+      apiKey ? fetchYouTubeViews(allYoutubeIds, apiKey) : Promise.resolve(0),
       vimeoToken ? fetchVimeoViews(vimeoIds, vimeoToken) : Promise.resolve(0),
     ]);
 
     const total = ytTotal + vmTotal;
 
     // ✅ Edge cache (keeps API quota sane)
-    res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate=86400");
+    // Reduced cache time to 60s to help debug updates
+    res.setHeader("Cache-Control", "no-store, max-age=0");
 
     return res.status(200).json({
       total,
       youtube: ytTotal,
       vimeo: vmTotal,
-      counts: { youtubeVideos: youtubeIds.length, vimeoVideos: vimeoIds.length },
+      counts: {
+        youtubeVideos: allYoutubeIds.length,
+        youtubePlaylists: youtubePlaylistIds.length,
+        vimeoVideos: vimeoIds.length,
+      },
       updatedAt: new Date().toISOString(),
     });
   } catch (e: any) {

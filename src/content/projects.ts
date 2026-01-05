@@ -783,8 +783,8 @@ credits: [
   ],
   },
   {
-    title: "The Illuminating Piano",
-    slug: makeSlug("The Illuminating Piano"),
+    title: "McCarthy Music | The Illuminating Piano",
+    slug: makeSlug("McCarthy Music | The Illuminating Piano"),
     date: "2015-01-20",
     year: 2015,
     tags: ["Corporate", "Commercial"],
@@ -1064,8 +1064,8 @@ credits: [
   ],
 },
   {
-    title: "Data and Analytics Matter",
-    slug: makeSlug("Data and Analytics Matter"),
+    title: "Deloitte | Data and Analytics Matter",
+    slug: makeSlug("Deloitte | Data and Analytics Matter"),
     date: "2017-07-27",
     year: 2017,
     tags: ["Corporate", "Series"],
@@ -1218,7 +1218,7 @@ credits: [
     ],
   },
   {
-    title: "Realistic Touch for Virtual Reality",
+    title: "HaptX | Realistic Touch for Virtual Reality",
     slug: makeSlug("Realistic Touch for Virtual Reality"),
     date: "2017-11-19",
     year: 2017,
@@ -1286,7 +1286,7 @@ credits: [
   ],
 },
   {
-    title: "K90: Reimagining the Construction Site",
+    title: "Katerra | K90: Reimagining the Construction Site",
     slug: makeSlug("K90: Reimagining the Construction Site"),
     date: "2019-02-21",
     year: 2019,
@@ -1386,8 +1386,8 @@ credits: [
   ],
 },
   {
-    title: "Project Profile Series: The M",
-    slug: makeSlug("Project Profile Series: The M"),
+    title: "Katerra | Project Profile Series: The M",
+    slug: makeSlug("Katerra | Project Profile Series: The M"),
     date: "2020-03-30",
     year: 2020,
     tags: ["Corporate", "Series"],
@@ -1404,8 +1404,8 @@ credits: [
   ],
   },
   {
-    title: "House of Lilac",
-    slug: makeSlug("House of Lilac"),
+    title: "Microsoft | House of Lilac",
+    slug: makeSlug("Microsoft | House of Lilac"),
     date: "2021-09-16",
     year: 2021,
     tags: ["Corporate", "Commercial"],
@@ -1438,8 +1438,8 @@ credits: [
   ],
   },
   {
-    title: "RPlate: A Digital License Plate",
-    slug: makeSlug("RPlate: A Digital License Plate"),
+    title: "Reviver | RPlate: A Digital License Plate",
+    slug: makeSlug("Reviver | RPlate: A Digital License Plate"),
     date: "2022-02-17",
     year: 2022,
     tags: ["Corporate", "Commercial"],
@@ -1485,8 +1485,8 @@ credits: [
     ],
   },
   {
-    title: "HaptX Gloves G1",
-    slug: makeSlug("HaptX Gloves G1"),
+    title: "HaptX | Gloves G1",
+    slug: makeSlug("HaptX | Gloves G1"),
     date: "2022-10-25",
     year: 2022,
     tags: ["Corporate", "Commercial"],
@@ -1714,8 +1714,8 @@ credits: [
   ],
 },
   {
-    title: "HaptX | HaptX Gloves G1",
-    slug: makeSlug("HaptX | HaptX Gloves G1"),
+    title: "HaptX | Gloves G1 Update",
+    slug: makeSlug("HaptX | HaptX Gloves G1 Update"),
     date: "2024-06-18",
     year: 2024,
     tags: ["Corporate", "Commercial"],
@@ -2433,6 +2433,112 @@ credits: [
     { role: "Trophy 3D Modeling", name: "Gabe Conroy" },
     { role: "Trophy 3D Printing by", name: "Alexander Theoharis" },
     { name: "Special Thanks to Maria Pandolfo, John Lagomarsino, The Monkey Pub" },
+  ],
+  },
+  {
+    title: "The Moment of Lift",
+    slug: makeSlug("The Moment of Lift"),
+    date: "2019-10-10",
+    year: 2019,
+    tags: ["Corporate", "Commercial"],
+    embedUrl: "https://player.vimeo.com/video/365636486?h=82fcb49d39",
+    thumbnailUrl: "/thumbnails/GatesFoundation_TheMomentOfLift.png",
+    description: "Animated book trailer",
+    longDescription: `Melinda Gates' book, The Moment of Lift: How Empowering Women Changes the World, argues that empowering women is crucial for global progress, using personal stories and data from her foundation's work to highlight issues like child marriage, lack of contraception, and workplace inequality.
+    
+    The book shows how lifting women up transforms families, communities, and societies through data and personal narratives, urging readers to act as advocates by sharing power and breaking down barriers.`,
+
+credits: [
+    { role: "Produced by", name: "Cinesaurus" },
+    { role: "Editing & Animation", name: "David Hudson" },
+    { role: "Sound Design", name: "David Zimmermann" },
+  ],
+  },
+  {
+    title: "NASA | 2021 Total Solar Eclipse",
+    slug: makeSlug("NASA | 2021 Total Solar Eclipse"),
+    date: "2021-12-04",
+    year: 2021,
+    tags: ["Corporate", "Live Event", "Livestream"],
+    embedUrl: "https://www.youtube.com/embed/J04GFN2Pq1w",
+    thumbnailUrl: "/thumbnails/NASA_SolarEclipse2021.jpg",
+    description: "NASA livestream of the 2021 total solar eclipse",
+    longDescription: `In 2021 we had the incredible [once-in-a-lifetime opportunity](https://www.instagram.com/p/CXxFjFupcub/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==) to travel to [Union Glacier Camp](https://antarctic-logistics.com/camp/union-glacier-camp/) in Antarctica to livestream the 2021 total solar eclipse.
+    
+    Additionally, we were awarded NASA's prestigious [APOD](https://apod.nasa.gov/apod/ap211209.html), or Astronomy Picture of the Day, for our composite of the eclipse at totality.`,
+
+credits: [
+    { role: "Produced by", name: "NASA" },
+    { role: "Camera Operator", name: "David Zimmermann" },
+    { role: "Tracking Equipment Operators", name: "Christian Lockwood, Theo Boris" },
+    { role: "Image Compositing", name: "Zev Hoover, Ron Dantowitz" },
+  ],
+  },
+  {
+    title: "Tesla | Semi & Roadster Unveil",
+    slug: makeSlug("Tesla | Semi & Roadster Unveil"),
+    date: "2017-12-14",
+    year: 2017,
+    tags: ["Corporate", "Live Event",],
+    embedUrl: "https://www.youtube.com/embed/5RRmepp7i5g",
+    thumbnailUrl: "/thumbnails/Tesla_SemiTruck.webp",
+    description: "Unveiling of the Tesla Semi",
+    longDescription: `Semi is the safest, most comfortable truck ever. Four independent motors provide maximum power and acceleration and require the lowest energy cost per mile.
+    
+    We had a fun time filming some plate footage out in eastern Washington, and compositing in the new Tesla semi truck as background content to support Elon Musk's presentation.`,
+
+credits: [
+    { role: "Tesla Semi presentation", name: "Cinesaurus" },
+    { role: "Drone Operator", name: "David Zimmermann" },
+    { role: "Supplemental Cinematography", name: "David Zimmermann" },
+    { role: "Motion Graphics & VFX", name: "Steven Hudson, David Hudson, Gabe Conroy" },
+    { role: "Additional VFX", name: "David Zimmermann" },
+  ],
+  },
+  {
+    title: "The Meme Song: Learn 101 Memes",
+    slug: makeSlug("The Meme Song: Learn 101 Memes"),
+    date: "2012-12-17",
+    year: 2012,
+    tags: ["Original", "Parody",],
+    embedUrl: "https://www.youtube.com/embed/IMAZEW-cnr4",
+    thumbnailUrl: "/thumbnails/LaughPong_MemesOfTheInternet.jpg",
+    description: "Memes of the Internet",
+    longDescription: `Inspired by Animaniacs - [Nations Of The World](https://tinyurl.com/47jm7563)`,
+
+credits: [
+    { role: "Produced by", name: "Cinesaurus" },
+    { role: "Directed by", name: "Forest Gibson" },
+    { role: "Edited by", name: "David Zimmermann" },
+    { role: "Lyrics", name: "Rob Whitehead" },
+    { role: "Performed by", name: "Forest Gibson" },
+    { role: "Animation", name: "David Zimmermann" },
+    { role: "Intro Animation", name: "Steven Hudson" },
+    { role: "Music by", name: "John K. Stark" },
+    { role: "Announcer", name: "Chris Parker" },
+  ],
+  },
+  {
+    title: "Siri, will you marry me?",
+    slug: makeSlug("Siri, will you marry me?"),
+    date: "2012-12-17",
+    year: 2012,
+    tags: ["Original", "Parody",],
+    embedUrl: "https://www.youtube.com/embed/d9aqUMgVbSc",
+    thumbnailUrl: "/thumbnails/LaughPong_MemesOfTheInternet.jpg",
+    description: "Memes of the Internet",
+    longDescription: `Inspired by Animaniacs - [Nations Of The World](https://tinyurl.com/47jm7563)`,
+
+credits: [
+    { role: "Produced by", name: "Cinesaurus" },
+    { role: "Directed by", name: "Forest Gibson" },
+    { role: "Edited by", name: "David Zimmermann" },
+    { role: "Lyrics", name: "Rob Whitehead" },
+    { role: "Performed by", name: "Forest Gibson" },
+    { role: "Animation", name: "David Zimmermann" },
+    { role: "Intro Animation", name: "Steven Hudson" },
+    { role: "Music by", name: "John K. Stark" },
+    { role: "Announcer", name: "Chris Parker" },
   ],
   },
 ];

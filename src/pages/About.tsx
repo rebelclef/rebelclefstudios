@@ -2,7 +2,6 @@ import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import ViewCounter from "../components/ViewCounter";
 
-// TODO: Add your logo filenames here (must be in public/logos folder)
 const CLIENT_LOGOS = [
   "Amazon.png", "Deloitte.png", "Gates_Foundation.png", "IgniteSeattle_logo.png", "Microsoft.png", "NASA.webp",
   "SawStop.webp", "TYRSport.png", "GeekWire.png", "WotC.png", "YouTube.png", "Xbox.png", "Tesla.png", 

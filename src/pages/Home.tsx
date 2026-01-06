@@ -7,8 +7,9 @@ function clamp(n: number, min: number, max: number) {
 }
 
 export default function Home() {
-  const [show, setShow] = useState(false);
   const [reelOpen, setReelOpen] = useState(false);
+  const [showText, setShowText] = useState(false);
+  const [showButton, setShowButton] = useState(false);
 
   // Parallax refs
   const heroSectionRef = useRef<HTMLElement | null>(null);
@@ -27,8 +28,16 @@ export default function Home() {
     "https://www.youtube.com/embed/MZJBQ75lG4E?autoplay=1&rel=0&modestbranding=1";
 
   useEffect(() => {
-    const t = setTimeout(() => setShow(true), 100);
-    return () => clearTimeout(t);
+    // Start 'Enjoy the view' animation after 0.5 seconds
+    const textTimer = setTimeout(() => setShowText(true), 500);
+
+    // Text animation duration (2000ms) + stagger (2*200ms)
+    const buttonTimer = setTimeout(() => setShowButton(true), 500 + 2000 + 400);
+
+    return () => {
+      clearTimeout(textTimer);
+      clearTimeout(buttonTimer);
+    };
   }, []);
 
   // Lock body scroll while modal is open + allow ESC to close
@@ -131,7 +140,6 @@ export default function Home() {
           <video
             className="h-full w-full object-cover"
             src={HERO_URL || "/hero.mp4"}
-            poster="/hero-poster.jpg"
             autoPlay
             muted
             loop
@@ -146,19 +154,26 @@ export default function Home() {
         {/* Centered content */}
         <div className="relative z-10 flex min-h-[100vh] flex-col items-center justify-center px-6 text-center">
           <h1
-            className={[
-              "text-5xl font-semibold tracking-tight text-white sm:text-6xl",
-              "transition-all duration-1000 ease-out",
-              show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
-            ].join(" ")}
+            className="flex gap-x-4 text-5xl font-semibold tracking-tight text-white sm:text-6xl"
           >
-            Enjoy the view.
+            {["Enjoy", "the", "view."].map((word, i) => (
+              <span
+                key={word}
+                className={[
+                  "inline-block transition-all duration-[2000ms] ease-out",
+                  showText ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-90",
+                ].join(" ")}
+                style={{ transitionDelay: `${i * 200}ms` }}
+              >
+                {word}
+              </span>
+            ))}
           </h1>
 
           <div
             className={[
-              "mt-8 transition-all duration-1000 ease-out delay-1000",
-              show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
+              "mt-8 transition-all duration-1000 ease-out",
+              showButton ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
             ].join(" ")}
           >
             <button
@@ -199,17 +214,27 @@ export default function Home() {
 
             {/* Modal panel */}
             <div className="relative mx-auto flex h-full max-w-5xl items-center px-6">
-              <div className="w-full overflow-hidden rounded-2xl bg-black shadow-xl">
-                <div className="flex items-center justify-between px-4 py-3">
-                  <div className="text-sm font-medium text-white/80"></div>
-                  <button
-                    type="button"
-                    onClick={() => setReelOpen(false)}
-                    className="rounded-lg px-3 py-2 text-sm text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+              <div className="relative w-full overflow-hidden rounded-2xl bg-black shadow-xl">
+                <button
+                  type="button"
+                  onClick={() => setReelOpen(false)}
+                  className="absolute right-3 top-3 z-10 rounded-full bg-black/50 p-2 text-white/80 backdrop-blur transition-colors hover:bg-black/70 hover:text-white"
+                  aria-label="Close"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
-                    X
-                  </button>
-                </div>
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </button>
 
                 <div
                   className="relative w-full"
@@ -289,7 +314,7 @@ export default function Home() {
         <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
           <div className="mx-auto max-w-3xl">
             <p className="text-center text-2xl font-light leading-relaxed text-white sm:text-3xl">
-              Rebel Clef is an award-winning creative agency passionate about
+              Rebel Clef is an Emmy award-winning creative agency passionate about
               visual storytelling. Stay grounded or take flight with us and let’s
               create something to be proud of.
             </p>

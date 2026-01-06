@@ -277,6 +277,20 @@ export default function Project() {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [slug]);
 
+  useEffect(() => {
+    if (project?.embedHtml?.includes("twitter-tweet")) {
+      const scriptSrc = "https://platform.twitter.com/widgets.js";
+      if (!document.querySelector(`script[src="${scriptSrc}"]`)) {
+        const script = document.createElement("script");
+        script.src = scriptSrc;
+        script.async = true;
+        document.body.appendChild(script);
+      } else {
+        (window as any).twttr?.widgets?.load();
+      }
+    }
+  }, [project]);
+
   if (!project) {
     return (
       <section className="bg-white">
@@ -423,7 +437,15 @@ export default function Project() {
         </div>
 
         {/* HERO VIDEO (full width) */}
-        {heroUrl && (
+        {project.embedHtml ? (
+          <div className="mt-8 flex justify-center">
+            {/* Twitter embeds are max 550px, so we scale them up on larger screens */}
+            <div
+              className="origin-top scale-100 md:scale-[1.55] lg:scale-[1.97] md:mb-60 lg:mb-[20.5rem] rounded-2xl border border-zinc-200 bg-black overflow-hidden"
+              dangerouslySetInnerHTML={{ __html: project.embedHtml }}
+            />
+          </div>
+        ) : heroUrl && (
           <div
             className={[
               "mt-8 overflow-hidden",

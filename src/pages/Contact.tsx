@@ -4,7 +4,7 @@ const FORM_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbw3uCDWnMU7gJqRHcDlveZ_4Es9iu1OP45dHMD3-S0CcVlpLk2k0GXlZeDnPQgruGr9/exec";
 
 export default function Contact() {
-  const MAP_QUERY = "NE Seattle";
+  const MAP_QUERY = "47.691266,-122.302090";
 
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -57,18 +57,21 @@ export default function Contact() {
   return (
     <section
       className="min-h-[100vh] w-full"
-      style={{ backgroundColor: "#284a9c" }}
+      style={{ backgroundColor: "#1841aa" }}
     >
-      <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-        <h1 className="text-5xl font-semibold tracking-tight text-white sm:text-6xl">
-          Get after it!
-        </h1>
-
+      <div className="mx-auto max-w-6xl px-6 py-4 sm:py-6">
+        <div className="text-center">
+          <img
+            src="/text/get-after-it.png"
+            alt="Get after it!"
+            className="mx-auto h-16 object-contain sm:h-20"
+          />
+        </div>
         <div className="mt-10 grid gap-8 lg:grid-cols-12">
           {/* LEFT: Contact form */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur">
-              <h2 className="text-sm font-light uppercase tracking-widest text-white/80">
+            <div className="rounded-2xl border border-white/50 bg-white/10 p-6 backdrop-blur">
+              <h2 className="text-sm font-light uppercase tracking-widest text-white">
                 Contact form
               </h2>
 
@@ -95,7 +98,7 @@ export default function Contact() {
 
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
-                      <label className="text-sm text-white/80">
+                      <label className="text-sm text-white">
                         Name <span className="text-white/60">*</span>
                       </label>
                       <input
@@ -108,7 +111,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label className="text-sm text-white/80">
+                      <label className="text-sm text-white">
                         Email <span className="text-white/60">*</span>
                       </label>
                       <input
@@ -123,7 +126,7 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="text-sm text-white/80">
+                    <label className="text-sm text-white">
                       Message <span className="text-white/60">*</span>
                     </label>
                     <textarea
@@ -146,13 +149,13 @@ export default function Contact() {
                         `
                         inline-flex items-center
                         rounded-xl
-                        border border-white/80
+                        border border-white
                         px-6 py-3
                         text-sm font-light
                         uppercase tracking-widest
                         text-white
                         transition-all duration-300
-                        hover:bg-white hover:text-black hover:border-white hover:-translate-y-[1px]
+                        hover:bg-white hover:text-black hover:border-white hover:scale-[1.05]
                         `,
                         sending
                           ? "opacity-60 cursor-not-allowed hover:bg-transparent hover:text-white hover:-translate-y-0"
@@ -162,7 +165,7 @@ export default function Contact() {
                       {sending ? "Sending…" : "Send"}
                     </button>
 
-                    <div className="text-sm text-white/80">
+                    <div className="text-sm text-white">
                       Or email:{" "}
                       <a
                         className="underline underline-offset-4 hover:text-white"
@@ -179,12 +182,12 @@ export default function Contact() {
 
           {/* RIGHT: Text + Map */}
           <div className="lg:col-span-5">
-            <div className="rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur">
-              <h2 className="text-sm font-light uppercase tracking-widest text-white/80">
+            <div className="rounded-2xl border border-white/50 bg-white/10 p-6 backdrop-blur">
+              <h2 className="text-sm font-light uppercase tracking-widest text-white">
                 Location
               </h2>
 
-              <p className="mt-5 text-base leading-[1.75] text-white/90">
+              <p className="mt-5 text-base leading-[1.75] text-white">
                 We’re located in NE Seattle, but our business knows no bounds!
                 Let’s make things happen, no matter where you’re reaching out
                 from.
@@ -199,12 +202,12 @@ export default function Contact() {
                     referrerPolicy="no-referrer-when-downgrade"
                     src={`https://www.google.com/maps?q=${encodeURIComponent(
                       MAP_QUERY
-                    )}&output=embed`}
+                    )}&z=11&output=embed`}
                   />
                 </div>
               </div>
 
-              <div className="mt-6 space-y-2 text-sm text-white/80">
+              <div className="mt-6 space-y-2 text-sm text-white">
                 <div>
                   Phone:{" "}
                   <a

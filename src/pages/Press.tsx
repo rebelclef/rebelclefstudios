@@ -1,3 +1,47 @@
+import { useEffect, useRef, useState } from "react";
+
+function FadeInSection({
+  children,
+  delayMs = 0,
+}: {
+  children: React.ReactNode;
+  delayMs?: number;
+}) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={[
+        "transition-all duration-700 ease-out",
+        shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
+      ].join(" ")}
+      style={{ transitionDelay: `${delayMs}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function Press() {
   const quotes = [
     {
@@ -18,14 +62,15 @@ export default function Press() {
     },
     {
       quote:
+        "Shot and presented in a manner so similar to many recent Hollywood tentpole films.",
+      source: "THE HOLLYWOOD REPORTER",
+      href: "https://www.hollywoodreporter.com/movies/movie-features/calvin-hobbes-spoof-movie-trailer-433011/",
+    },
+    {
+      quote:
         "This is one that'll make viewers want to stand up for the little guys who just want to make the world smarter.",
       source: "TODAY SHOW",
       href: "https://www.today.com/popculture/pbs-stars-take-junk-tv-avengers-style-6C9737221",
-    },
-    {
-      quote: "The talented folks over at Gritty Reboots have killed it again.",
-      source: "BUZZFEED",
-      href: "https://www.buzzfeed.com/brodiemanthe1st/gritty-reboots-does-calvin-hobbes-2txu",
     },
     {
       quote:
@@ -34,10 +79,9 @@ export default function Press() {
       href: "https://www.adweek.com/creativity/iphone-5s-giant-screen-truly-game-changer-143963/",
     },
     {
-      quote:
-        "Shot and presented in a manner so similar to many recent Hollywood tentpole films.",
-      source: "THE HOLLYWOOD REPORTER",
-      href: "https://www.hollywoodreporter.com/movies/movie-features/calvin-hobbes-spoof-movie-trailer-433011/",
+      quote: "The talented folks over at Gritty Reboots have killed it again.",
+      source: "BUZZFEED",
+      href: "https://www.buzzfeed.com/brodiemanthe1st/gritty-reboots-does-calvin-hobbes-2txu",
     },
     {
       quote: "This ad parody is actually better than the original.",
@@ -52,31 +96,37 @@ export default function Press() {
   ];
 
   return (
-    <section className="bg-white">
-      <div className="mx-auto max-w-6xl px-24 pt-8 pb-20 sm:pt-10 sm:pb-24">
-        <div className="space-y-14">
+    <section className="min-h-screen bg-[#1841aa] py-4 sm:py-6">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <img
+            src="/text/press.png"
+            alt="Press"
+            className="mx-auto h-16 object-contain sm:h-20"
+          />
+        </div>
+        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {quotes.map((q, idx) => (
-            <div key={idx} className="mx-auto max-w-2xl text-center">
-              <p className="text-2xl font-light leading-relaxed text-zinc-900 sm:text-3xl">
-                “{q.quote}”
-              </p>
-
-              <div className="mt-6">
-                <a
-                  href={q.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-block text-xs font-light uppercase tracking-[0.25em] text-zinc-600 transition-colors hover:text-[#284a9c]"
-                >
-                  • {q.source} •
-                </a>
-              </div>
-
-              {/* Divider */}
-              {idx !== quotes.length - 1 && (
-                <hr className="my-10 border-t border-zinc-200" />
-              )}
-            </div>
+            <FadeInSection key={idx} delayMs={idx * 80}>
+              <a
+                href={q.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex h-full flex-col justify-between rounded-3xl bg-white/10 p-6 ring-1 ring-white/20 backdrop-blur-lg transition-all duration-300 hover:bg-white/20 hover:ring-white/30"
+              >
+                <blockquote className="text-xl font-medium leading-relaxed text-white/90">
+                  <p>“{q.quote}”</p>
+                </blockquote>
+                <div className="mt-6 flex items-center justify-between border-t border-white/20 pt-6">
+                  <span className="text-xs font-bold uppercase tracking-widest text-white/70">
+                    {q.source}
+                  </span>
+                  <span className="text-white/50 transition-transform group-hover:translate-x-1">
+                    ↗
+                  </span>
+                </div>
+              </a>
+            </FadeInSection>
           ))}
         </div>
       </div>

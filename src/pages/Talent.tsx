@@ -219,8 +219,8 @@ function PhotoCarousel({ photos }: { photos: TalentPhoto[] }) {
               "relative h-16 w-16 flex-none overflow-hidden rounded-xl bg-zinc-900",
               "border transition-colors",
               i === active
-                ? "border-[#284a9c]"
-                : "border-zinc-700 hover:border-zinc-500",
+                ? "border-white"
+                : "border-white/20 hover:border-white/50",
             ].join(" ")}
             aria-label={`View photo ${i + 1}`}
           >
@@ -286,17 +286,19 @@ export default function Talent() {
   );
 
   return (
-    <section className="bg-white">
+    <section className="min-h-screen bg-[#1841aa]">
       <div className="mx-auto max-w-6xl px-6 py-4 sm:py-6">
         <header className="mx-auto max-w-3xl text-center">
-          <h1 className="text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl">
-            Talent
-          </h1>
-          <p className="mt-6 text-base font-light leading-relaxed text-zinc-700">
+          <img
+            src="/text/talent.png"
+            alt="Talent"
+            className="mx-auto h-16 object-contain sm:h-20"
+          />
+          <p className="mt-6 text-base font-light leading-relaxed text-blue-100">
             We've recently expanded our talent and model representation to
             serve productions across the PNW, and we're continually seeking new clients to partner with.
           </p>
-          <div className="mt-10 text-sm text-zinc-300">* * *</div>
+          <div className="mt-10 text-sm text-blue-300/50">* * *</div>
         </header>
 
         <div className="mt-12 space-y-14">
@@ -306,7 +308,7 @@ export default function Talent() {
                 {/* Portrait */}
                 <div className="lg:col-span-4">
                   <a href={t.portraitHref} target="_blank" rel="noreferrer">
-                    <div className="overflow-hidden rounded-2xl bg-zinc-100">
+                    <div className="overflow-hidden rounded-2xl bg-white/10">
                       <div className="relative aspect-[3/4] w-full">
                         <img
                           src={t.portraitUrl}
@@ -321,16 +323,16 @@ export default function Talent() {
 
                 {/* Stats */}
                 <div className="lg:col-span-3">
-                  <h2 className="text-2xl font-medium tracking-tight text-zinc-900">
+                  <h2 className="text-2xl font-medium tracking-tight text-white">
                     {t.name}
                   </h2>
                   <dl className="mt-5 grid gap-y-3">
                     {t.stats.map(([label, value]) => (
                       <div key={label}>
-                        <dt className="text-[11px] uppercase tracking-[0.22em] text-zinc-500">
+                        <dt className="text-[11px] uppercase tracking-[0.22em] text-blue-200">
                           {label}
                         </dt>
-                        <dd className="mt-1 text-sm text-zinc-900">{value}</dd>
+                        <dd className="mt-1 text-sm text-blue-50">{value}</dd>
                       </div>
                     ))}
                   </dl>

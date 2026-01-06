@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Press from "./pages/Press";
 import Talent from "./pages/Talent";
+import ZimmBuilds from "./pages/ZimmBuilds";
 import Footer from "./components/Footer";
 
 // Temporary placeholders so links don't 404.
@@ -228,6 +229,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/talent" element={<Talent />} />
           <Route path="/press" element={<Press />} />
+          <Route path="/zimmbuilds" element={<ZimmBuilds />} />
         </Routes>
       </main>
       <Footer />

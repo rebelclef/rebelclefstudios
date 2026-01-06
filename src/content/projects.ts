@@ -43,6 +43,7 @@ export type Project = {
   accolades?: string[];
   videosLayout?: "carousel" | "grid-two";
   longDescriptionAfterMedia?: boolean;
+  embedHtml?: string;
 };
 
 export const projects: Project[] = [
@@ -217,7 +218,7 @@ credits: [
     year: 2012,
     tags: ["Original", "Parody"],
     embedUrl: "https://www.youtube.com/embed/EaW6IiWKHAk",
-    thumbnailUrl: "/thumbnails/iMacTouch.webp",
+    thumbnailUrl: "/thumbnails/LaughPong/iMacTouch.webp",
     description: "Apple Parody Ad",
     longDescription: `In late 2012, rumors were swirling that Apple might be working on a touch-sensitive version of the iMac. When it wasn’t announced, we decided to jump on the unfortunate news and imagine what an ad for it might have looked like. The video garnered over 2 million views, and caught the attention of tech blogs such as [Gizmodo](https://gizmodo.com/this-ipad-mini-ad-parody-is-actually-better-than-the-or-5957719).`,
     
@@ -237,7 +238,7 @@ credits: [
     year: 2012,
     tags: ["Original", "Parody"],
     embedUrl: "https://www.youtube.com/embed/4d5xkULjc50",
-    thumbnailUrl: "/thumbnails/SurfaceVsiPad.webp",
+    thumbnailUrl: "/thumbnails/LaughPong/SurfaceVsiPad.webp",
     description: "Parody of Apple’s iPad Mini Ad",
     longDescription: `Whose side are you on? When Apple announced the iPad Mini in late 2012, they “changed everything” yet again, adding a new competitor to the ongoing tablet war.
 
@@ -258,7 +259,7 @@ credits: [
     year: 2012,
     tags: ["Original", "Parody"],
     embedUrl: "https://www.youtube.com/embed/bIy6w_iubSs",
-    thumbnailUrl: "/thumbnails/CoolThingsToFind.webp",
+    thumbnailUrl: "/thumbnails/Cinesaurus/CoolThingsToFind.webp",
     description: "Mars Curiosity Rover Musical Parody",
     longDescription: `Lost socks? Twinkies? Facehuggers?! When NASA landed their Curiosity rover on Mars in 2012, the world’s attention was focused on what the new rover might find on the red planet.
 
@@ -282,7 +283,7 @@ credits: [
     year: 2013,
     tags: ["Original", "Parody", "Gritty Reboots"],
     embedUrl: "https://www.youtube.com/embed/wIzXBSZgu8M",
-    thumbnailUrl: "/thumbnails/HarvestMoon.webp",
+    thumbnailUrl: "/thumbnails/GrittyReboots/HarvestMoon.webp",
     description: "Live-action Harvest Moon parody trailer",
     longDescription: `At the start of 2012, the Gritty Reboots YouTube channel was born. For our maiden voyage, we decided to embark upon the world of the farm simulation role-playing game, Harvest Moon.
 
@@ -336,7 +337,7 @@ Curious how we were able to film with miniature cows? Want to see our rendition 
     year: 2013,
     tags: ["Original", "Parody", "Gritty Reboots"],
     embedUrl: "https://www.youtube.com/embed/SMgGowLgb_0",
-    thumbnailUrl: "/thumbnails/PokemonSnap.webp",
+    thumbnailUrl: "/thumbnails/GrittyReboots/PokemonSnap.webp",
     description: "Live-action Pokémon Snap parody trailer",
     longDescription: `Gotta capture ’em all! In celebration of the 20th anniversary and 3D theatrical re-release of Jurassic Park in 2013, we paid tribute by recreating the trailer with a unique twist.
 
@@ -393,7 +394,7 @@ Below, take a look at the behind the scenes process of how we did our best to tr
     year: 2013,
     tags: ["Original", "Parody", "Gritty Reboots"],
     embedUrl: "https://www.youtube.com/embed/17qyaXOFZXg",
-    thumbnailUrl: "/thumbnails/CalvinAndHobbes.webp",
+    thumbnailUrl: "/thumbnails/GrittyReboots/CalvinAndHobbes.webp",
     description: "Live-action Calvin & Hobbes parody trailer",
     longDescription: `Imagination is a powerful force. Since 1985, Bill Watterson has captured the hearts of children and adults alike with his daily comic strip, Calvin & Hobbes. Being lifelong fans ourselves, we couldn’t pass up the chance to bring this beloved series to life as a gritty, live-action trailer.
 
@@ -449,7 +450,7 @@ Below, check out the process of what it took to bring the fantastical world of C
     year: 2013,
     tags: ["Original", "Parody", "Gritty Reboots"],
     embedUrl: "https://www.youtube.com/embed/6LIr2DdiXmA",
-    thumbnailUrl: "/thumbnails/GoodnightMoon.webp",
+    thumbnailUrl: "/thumbnails/GrittyReboots/GoodnightMoon.webp",
     description: "Live-action 'Goodnight Moon' parody trailer",
     longDescription: `It is safe to say that most people born in the last 70 years likely are familiar with the famous children’s story, Goodnight Moon. Having been raised on it ourselves, we decided it was the perfect subject for the “gritty reboot” treatment.
 
@@ -499,7 +500,7 @@ The story of Goodnight Moon takes place in a large, green room. Fortunately, a f
     year: 2013,
     tags: ["Original", "Parody", "Gritty Reboots"],
     embedUrl: "https://www.youtube.com/embed/baQBTWd49j4",
-    thumbnailUrl: "/thumbnails/PBSAvengers.webp",
+    thumbnailUrl: "/thumbnails/GrittyReboots/PBSAvengers.webp",
     description: "Live-action PBS 'Avengers' parody trailer",
     longDescription: `Avengers, assemble! Being big supporters of STEM, we consider it a blessing to have grown up watching educational shows like Mister Rogers’ Neighborhood and Bill Nye the Science Guy.
 
@@ -560,7 +561,7 @@ Want to keep on learning? Check out our Behind the Scenes and Before & After vid
     year: 2013,
     tags: ["Original", "Parody", "Gritty Reboots"],
     embedUrl: "https://www.youtube.com/embed/AG3gEv4UQfY",
-    thumbnailUrl: "/thumbnails/Warplanes.webp",
+    thumbnailUrl: "/thumbnails/GrittyReboots/Warplanes.webp",
     description: "Animated parody of Disney's 'Planes'",
     longDescription: `Cars, boats, planes… Disney has shown us the lives of many anthropomorphic vehicles, but what about the ones on the front lines? Warplanes follows these lovable killing machines as they involuntarily battle before meeting their own grim fates.
 
@@ -586,7 +587,7 @@ credits: [
     year: 2013,
     tags: ["Original"],
     embedUrl: "https://www.youtube.com/embed/9hxGwaIXWq8",
-    thumbnailUrl: "/thumbnails/MOGA-TheShootout.webp",
+    thumbnailUrl: "/thumbnails/Cinesaurus/MOGA-TheShootout.webp",
     description: "MOGA Video Contest Entry",
     longDescription: `Game On. Anywhere. When MOGA, a company known for its mobile gaming controllers, announced a big video contest in late 2013—with the grand prize of a RED Scarlet camera package—our interest was piqued. After finding out that it would be judged by some of our favorite YouTubers, including Freddie Wong of [RocketJump](https://www.youtube.com/user/freddiew), Sam and Niko of [Corridor Digital](https://www.youtube.com/user/CorridorDigital), and Ryan Connolly of [Film Riot](https://www.youtube.com/user/filmriot), we were compelled to enter.
 
@@ -671,7 +672,7 @@ credits: [
     year: 2014,
     tags: ["Original", "Parody", "Gritty Reboots"],
     embedUrl: "https://www.youtube.com/embed/0ciStOdCGnk",
-    thumbnailUrl: "/thumbnails/AdventureTime.webp",
+    thumbnailUrl: "/thumbnails/GrittyReboots/AdventureTime.webp",
     description: "Live-action Adventure Time parody trailer",
     longDescription: `Algebraic! Since its debut in 2010, Adventure Time charmed over three million teenagers (and adults, who are we kidding) as the most imaginative cartoon around.
 
@@ -737,7 +738,7 @@ credits: [
     year: 2014,
     tags: ["Original", "Parody", "Gritty Reboots"],
     embedUrl: "https://www.youtube.com/embed/RQcD6xps4M4",
-    thumbnailUrl: "/thumbnails/IYGAMAC.webp",
+    thumbnailUrl: "/thumbnails/GrittyReboots/IYGAMAC.webp",
     description: "Live-action 'If You Give a Mouse a Cookie' parody trailer",
     longDescription: `If you give a mouse a cookie, he's going to ask for a glass of milk.  When you give him the milk, it's too late...
 
@@ -837,7 +838,7 @@ credits: [
     year: 2016,
     tags: ["Original", "Corporate"],
     embedUrl: "https://www.youtube.com/embed/qNRxpL7Zov4",
-    thumbnailUrl: "/thumbnails/MONAFoundation.webp",
+    thumbnailUrl: "/thumbnails/Cinesaurus/MONAFoundation.webp",
     description: "PSA for Women in #STEM",
     longDescription: `Women are 50% of the population, but make up only 24% of the STEM workforce in the United States. This needs to change. Support organizations that support girls and women. Here are a few that we love:
 
@@ -870,7 +871,7 @@ credits: [
     year: 2016,
     tags: ["Corporate", "Commercial"],
     embedUrl: "https://www.youtube.com/embed/bkLcidp878Q",
-    thumbnailUrl: "/thumbnails/TYR_OmahaNights.webp",
+    thumbnailUrl: "/thumbnails/TYR/TYR_OmahaNights.webp",
     description: "TYR Sport",
     longDescription: `The newest print to hit the world’s stage is here. Meet the Limited Edition Omaha Nights print, part of TYR Sport’s celebrated Avictor collection. \n \n Born out of a collaboration between the industry’s top experts and the world’s most elite swimmers, the Avictor Omaha Nights Jammer is TYR’s fastest, most innovative technical swimsuit. Showcasing an unprecedented combination of advanced features, this FINA-approved technical suit maximizes performance and gives athletes the ultimate advantage over their rivals.
 
@@ -891,7 +892,7 @@ credits: [
     year: 2016,
     tags: ["Corporate", "Series"],
     embedUrl: "https://www.youtube.com/embed/7TN0b8ik0B8",
-    thumbnailUrl: "/thumbnails/WOTC_AM_EldritchMoon.webp",
+    thumbnailUrl: "/thumbnails/WotC/AM_EldritchMoon.webp",
     description: "Magic: The Gathering talk show series",
     longDescriptionAfterMedia: true,
     longDescription: `Joining forces with Wizards of the Coast once again, we were tasked with designing and producing a three-episode talk show to introduce fans to the story, lore, and design of the Eldritch Moon expansion for Magic: The Gathering.
@@ -949,7 +950,7 @@ credits: [
     year: 2016,
     tags: ["Corporate", "Commercial"],
     embedUrl: "https://www.youtube.com/embed/gKv9KzhNMU8",
-    thumbnailUrl: "/thumbnails/TYR_AvictorTransparency.webp",
+    thumbnailUrl: "/thumbnails/TYR/TYR_AvictorTransparency.webp",
     description: "About the TYR Avictor",
     longDescription: `Born out of a collaboration between the industry’s top experts and the world’s most elite swimmers, the Avictor showcases state-of-the-art advancement at every level. With cutting-edge hydrosphere technology, proprietary speed dry fabrication and super flex bonding, the FINA-approved suit maximizes performance, while giving athletes the ultimate advantage over their competition.
 
@@ -992,7 +993,7 @@ credits: [
     year: 2017,
     tags: ["Corporate", "Series"],
     embedUrl: "https://www.youtube.com/embed/dmWFxMn2nUY",
-    thumbnailUrl: "/thumbnails/WOTC_AM_Amonkhet.webp",
+    thumbnailUrl: "/thumbnails/WotC/AM_Amonkhet.webp",
     description: "Magic: The Gathering talk show series",
     longDescriptionAfterMedia: true,
     longDescription: `In this series, Maria Bartholdi sits down with Magic: The Gathering brand managers, game designers, and community managers to discuss the Five Trials of the Gods: a series of tasks performed on the plane of Amonkhet that each inhabitant of the world aspires to complete.
@@ -1053,7 +1054,7 @@ credits: [
     year: 2017,
     tags: ["Corporate"],
     embedUrl: "https://www.youtube.com/embed/Ygs0kHhczXo",
-    thumbnailUrl: "/thumbnails/MTG_Announcements.webp",
+    thumbnailUrl: "/thumbnails/WotC/MTG_Announcements.webp",
     description: "Behind-the-scenes at Wizards of the Coast",
     longDescription: `Community Manager, Nate, takes you inside the walls of Wizards of the Coast to find out some of the exciting things coming for Magic in the next year. \n \n Learn more about the changes at [magic.wizards.com](http://magic.wizards.com).`,
 
@@ -1144,7 +1145,7 @@ credits: [
     year: 2017,
     tags: ["Original", "Parody", "Music Video"],
     embedUrl: "https://www.youtube.com/embed/NY7N02eZGoQ",
-    thumbnailUrl: "/thumbnails/SpaceXLaunchYouUp.webp",
+    thumbnailUrl: "/thumbnails/Cinesaurus/SpaceXLaunchYouUp.webp",
     description: "Parody of ‘Uptown Funk’ by Mark Ronson feat. Bruno Mars",
     longDescription: `Launch and land and relaunch! Back in April of 2015, SpaceX was attempting to land their Falcon 9 rocket for the first time. Naturally, we jumped at the chance to help celebrate this historical day. If you’re a fan of SpaceX—or Elon Musk and his ventures in general—pay close attention to the lyrics… there’s some deep references in there.
 
@@ -1184,7 +1185,7 @@ credits: [
     year: 2017,
     tags: ["Corporate", "Series"],
     embedUrl: "https://www.youtube.com/embed/xkiMRSdrRUw",
-    thumbnailUrl: "/thumbnails/WPN_HowToPrepareForAnEvent.webp",
+    thumbnailUrl: "/thumbnails/WotC/WPN_HowToPrepareForAnEvent.webp",
     description: "Wizards Play Network series",
     longDescriptionAfterMedia: true,
     longDescription: `In this two-part series, Jamison Sacks of Common Ground Games shares how he prepares his store for an event. See if he’s doing something you could be and give it a try at your store!
@@ -1224,7 +1225,7 @@ credits: [
     year: 2017,
     tags: ["Corporate", "Commercial"],
     embedUrl: "https://www.youtube.com/embed/2C2_kbjtjRU",
-    thumbnailUrl: "/thumbnails/HaptX_LaunchVideo.webp",
+    thumbnailUrl: "/thumbnails/HaptX/HaptX_LaunchVideo.webp",
     description: "Virtual Reality Haptic Gloves",
     longDescription: `HaptX Gloves™ are the world’s first industrial-grade haptic wearable. It’s the only glove to deliver high-fidelity tactile feedback and up to five pounds of force feedback per finger. HaptX Glove’s sub-millimeter accuracy makes it the most precise motion-tracked glove and enables enterprise users to achieve unprecedented realism and productivity in virtual environments.
 
@@ -1256,7 +1257,7 @@ credits: [
     year: 2018,
     tags: ["Corporate", "Commercial"],
     embedUrl: "https://www.youtube.com/embed/U65nqQv9hb8",
-    thumbnailUrl: "/thumbnails/TYR_Active_FitForItAll.webp",
+    thumbnailUrl: "/thumbnails/TYR/TYR_Active_FitForItAll.webp",
     description: "TYR Activewear",
     longDescription: `With an exclusive offering of support categories, the New TYR Active Spring/Summer 2018 Collection has just what you need to go from a dry land workout to the beach for a swim, plus everywhere in between. So no matter the day, you’ll be fit for it all. #TYRActive #FitForItAll`,
 
@@ -1274,7 +1275,7 @@ credits: [
     year: 2018,
     tags: ["Corporate", "Commercial"],
     embedUrl: "https://www.youtube.com/embed/FPSVy32DnE4",
-    thumbnailUrl: "/thumbnails/TYR_Active_FindYourSupportStory.webp",
+    thumbnailUrl: "/thumbnails/TYR/TYR_Active_FindYourSupportStory.webp",
     description: "TYR Activewear",
     longDescription: `With three distinctly designed support categories, our light, medium and maximum offerings of sports bras and tanks empower women to feel comfortable and strong, while still enjoying a range of prints, colors and fits. So whether you’re hitting the gym or running down the beach, you can focus on what really matters: you.`,
 
@@ -1292,7 +1293,7 @@ credits: [
     year: 2019,
     tags: ["Corporate", "Series"],
     embedUrl: "https://player.vimeo.com/video/814737300?h=643aa535a2",
-    thumbnailUrl: "/thumbnails/Katerra_K90.webp",
+    thumbnailUrl: "/thumbnails/Katerra/Katerra_K90.webp",
     description: "Katerra's construction innovation",
     longDescription: `K90 is Katerra's first project working to shorten the typical construction time—from foundation to finish—down to 90 days, using a combination of manufacturing, technology tools, innovative products, and process innovation to reach this goal.`,
 
@@ -1310,7 +1311,7 @@ credits: [
     year: 2019,
     tags: ["Corporate", "Series"],
     embedUrl: "https://www.youtube.com/embed/FkwRgd4Dz9E",
-    thumbnailUrl: "/thumbnails/MicrosoftUnboxed.webp",
+    thumbnailUrl: "/thumbnails/Microsoft/MicrosoftUnboxed.webp",
     description: "Microsoft Unboxed video series",
     longDescriptionAfterMedia: true,
     longDescription: `Microsoft Unboxed is a video series that takes viewers behind the scenes of Microsoft product launches and events. From unboxing the latest Surface devices to exploring the features of Windows 10, each episode provides an in-depth look at the technology and innovation that Microsoft is known for.`,
@@ -1357,7 +1358,7 @@ credits: [
     year: 2019,
     tags: ["Corporate", "Commercial"],
     embedUrl: "https://player.vimeo.com/video/814737065?h=ece081b78c",
-    thumbnailUrl: "/thumbnails/Katerra_CLTTechnology.webp",
+    thumbnailUrl: "/thumbnails/Katerra/Katerra_CLTTechnology.webp",
     description: "Katerra's CLT technology",
     longDescription: `Mass timber represents the future of high-performance building technology as a new market for building materials that are safe, efficient, economical, and environmentally friendly. \n \n Katerra is leading the way with CLT (cross-laminated timber) technology, which allows for the prefabrication of large wood panels that can be used for walls, floors, and roofs. These panels are made by gluing together layers of lumber at right angles to create a strong and stable material that is both lightweight and durable.`,
 
@@ -1374,7 +1375,7 @@ credits: [
     year: 2020,
     tags: ["Corporate", "Commercial"],
     embedUrl: "https://www.youtube.com/embed/hE3fBDvq8wY",
-    thumbnailUrl: "/thumbnails/TYR_Active_SpringSummer.webp",
+    thumbnailUrl: "/thumbnails/TYR/TYR_Active_SpringSummer.webp",
     description: "TYR Activewear",
     longDescription: `Find your perfect fit with the all new #TYRActive Spring Summer 2020 collection. With light, medium and maximum support, TYR has the style and comfort you need for all your aquatic adventures. #FitForItAll.  Shop now at [tyr.com](https://www.tyr.com).`,
 
@@ -1392,7 +1393,7 @@ credits: [
     year: 2020,
     tags: ["Corporate", "Series"],
     embedUrl: "https://player.vimeo.com/video/814736718?h=a3afef5cbb",
-    thumbnailUrl: "/thumbnails/Katerra_TheM.webp",
+    thumbnailUrl: "/thumbnails/Katerra/Katerra_TheM.webp",
     description: "Katerra's The M project",
     longDescription: `Part of Katerra's Project Profile Series, The M is a multifamily residential project located in Seattle, Washington. The M utilizes Katerra's innovative construction technologies to deliver high-quality housing in a fraction of the time of traditional construction methods.`,
 
@@ -1410,7 +1411,7 @@ credits: [
     year: 2021,
     tags: ["Corporate", "Commercial"],
     embedUrl: "https://www.youtube.com/embed/N-x5lCtXdGg",
-    thumbnailUrl: "/thumbnails/Microsoft_HouseOfLilac.webp",
+    thumbnailUrl: "/thumbnails/Microsoft/HouseOfLilac.webp",
     description: "Microsoft 365 for Small Business",
     longDescription: `In Miami, Florida, a florist turned to Microsoft 365 to keep her small business up and running even in the midst of the pandemic.`,
 
@@ -1491,7 +1492,7 @@ credits: [
     year: 2022,
     tags: ["Corporate", "Commercial"],
     embedUrl: "https://player.vimeo.com/video/762515445",
-    thumbnailUrl: "/thumbnails/HaptX_GlovesG1.webp",
+    thumbnailUrl: "/thumbnails/HaptX/HaptX_GlovesG1.webp",
     description: "Virtual Reality Haptic Gloves",
     longDescription: `Now available for pre-orders at haptx.com: the industry's most advanced haptic gloves, priced for scalable deployment. HaptX has engineered HaptX Gloves G1 with the features most requested by customers, including improved ergonomics, multiple sizes, wireless mobility, new and improved haptic functionality, and multiplayer collaboration, all priced as low as $4,500 per pair – a fraction of the cost of the award-winning HaptX Gloves DK2.`,
 
@@ -1532,7 +1533,7 @@ credits: [
     year: 2023,
     tags: ["Corporate", "Commercial"],
     embedUrl: "https://www.youtube.com/embed/24RJd_wjv6g",
-    thumbnailUrl: "/thumbnails/TYR_TYRxVellner.webp",
+    thumbnailUrl: "/thumbnails/TYR/TYRxVellner.webp",
     description: "TYR Sport and Pat Vellner Collaboration",
     longDescription: `TYR is proud to announce a collaboration one year in the making. The Limited Edition Pat Vellner CXT-1 Trainers combine the construction of the TYR CXT-1 you’ve come to trust with design elements inspired by eight-time Crossfit® Games competitor, Pat Vellner.`,
 
@@ -1550,7 +1551,7 @@ credits: [
     year: 2023,
     tags: ["Corporate", "Commercial"],
     embedUrl: "https://www.instagram.com/reel/Cuz0gdrIz5h/embed",
-    thumbnailUrl: "/thumbnails/TYR_NewSuits.webp",
+    thumbnailUrl: "/thumbnails/TYR/TYR_NewSuits.webp",
     description: "TYR Sport racing suits for Spring/Summer 2023",
     longDescriptionAfterMedia: true,
     longDescription: `TYR Sport is excited to introduce two new racing suits for Spring/Summer 2023. The Venzo and Avictor racing suits are designed for competitive swimmers looking to enhance their performance in the pool. Both suits feature TYR's innovative technology and high-quality materials, providing swimmers with the support and comfort they need to excel.`,
@@ -1577,7 +1578,7 @@ credits: [
     date: "2023-09-20",
     year: 2023,
     tags: ["Corporate", "Series"],
-    thumbnailUrl: "/thumbnails/ConXtech_Series.webp",
+    thumbnailUrl: "/thumbnails/ConXtech/ConXtech_Series.webp",
     description: "ConXtech construction innovation series",
     longDescriptionAfterMedia: true,
     longDescription: `With ConXtech, the construction industry can predictably build faster, safer and more efficiently.
@@ -1703,7 +1704,7 @@ credits: [
     year: 2024,
     tags: ["Corporate", "Commercial"],
     embedUrl: "https://www.youtube.com/embed/8dHEmr7GByU",
-    thumbnailUrl: "/thumbnails/TYR_USAAnthem2024.webp",
+    thumbnailUrl: "/thumbnails/TYR/TYR_USAAnthem2024.webp",
     description: "TYR Sport USA ad for the 2024 Olympics",
     longDescription: `TYR is proud to unveil the new USA Swimming national team uniform, a symbol of unity, strength, and commitment to excellence. With an innovative design and unrivaled quality, this uniform embodies the spirit of champions. TYR, always in front.`,
 
@@ -1720,7 +1721,7 @@ credits: [
     year: 2024,
     tags: ["Corporate", "Commercial"],
     embedUrl: "https://www.youtube.com/embed/huNdXJuDMUQ",
-    thumbnailUrl: "/thumbnails/HaptX_GlovesG12024.webp",
+    thumbnailUrl: "/thumbnails/HaptX/HaptX_GlovesG12024.webp",
     description: "Virtual Reality Haptic Gloves",
     longDescription: `With hundreds of air-powered actuators, HaptX Gloves G1 is the most realistic system for touch feedback for VR and robotics. HaptX's unique haptic glove technology revolutionizes workforce training. G1 adds realism to VR training programs that build muscle memory for skilled workers. G1 also improves the teleoperation and training of humanoid robots.
     
@@ -1886,7 +1887,7 @@ credits: [
     year: 2023,
     tags: ["Corporate", "Live Event"],
     embedUrl: "https://www.youtube.com/embed/IcB0PiwFJvo",
-    thumbnailUrl: "/thumbnails/Ignite/IgniteSeattle_logo.jpg",
+    thumbnailUrl: "/thumbnails/Ignite/IgniteSeattle_44.jpg",
     description: "Ignite Seattle public speaking event",
     longDescriptionAfterMedia: true,
     longDescription: `Ignite Seattle is a non-profit organization that hosts events where speakers have five minutes to present on a topic they are passionate about, using 20 slides that auto-advance every 15 seconds. The goal of Ignite Seattle is to inspire and educate the audience through fast-paced, engaging presentations on a wide range of topics, from technology and science to art and culture.
@@ -1954,7 +1955,7 @@ credits: [
     year: 2024,
     tags: ["Corporate", "Live Event"],
     embedUrl: "https://www.youtube.com/embed/yb-60CLNFSo",
-    thumbnailUrl: "/thumbnails/Ignite/IgniteSeattle_logo.jpg",
+    thumbnailUrl: "/thumbnails/Ignite/IgniteSeattle_45.jpg",
     description: "Ignite Seattle public speaking event",
     longDescriptionAfterMedia: true,
     longDescription: `Ignite Seattle is a non-profit organization that hosts events where speakers have five minutes to present on a topic they are passionate about, using 20 slides that auto-advance every 15 seconds. The goal of Ignite Seattle is to inspire and educate the audience through fast-paced, engaging presentations on a wide range of topics, from technology and science to art and culture.
@@ -2027,7 +2028,7 @@ credits: [
     year: 2024,
     tags: ["Corporate", "Live Event"],
     embedUrl: "https://www.youtube.com/embed/0ChBx8Tv5RI",
-    thumbnailUrl: "/thumbnails/Ignite/IgniteSeattle_logo.jpg",
+    thumbnailUrl: "/thumbnails/Ignite/IgniteSeattle_46.jpg",
     description: "Ignite Seattle public speaking event",
     longDescriptionAfterMedia: true,
     longDescription: `Ignite Seattle is a non-profit organization that hosts events where speakers have five minutes to present on a topic they are passionate about, using 20 slides that auto-advance every 15 seconds. The goal of Ignite Seattle is to inspire and educate the audience through fast-paced, engaging presentations on a wide range of topics, from technology and science to art and culture.
@@ -2107,7 +2108,7 @@ credits: [
     year: 2025,
     tags: ["Corporate", "Live Event"],
     embedUrl: "https://www.youtube.com/embed/AqZkFFOtmNo",
-    thumbnailUrl: "/thumbnails/Ignite/IgniteSeattle_logo.jpg",
+    thumbnailUrl: "/thumbnails/Ignite/IgniteSeattle_47.jpg",
     description: "Ignite Seattle public speaking event",
     longDescriptionAfterMedia: true,
     longDescription: `Ignite Seattle is a non-profit organization that hosts events where speakers have five minutes to present on a topic they are passionate about, using 20 slides that auto-advance every 15 seconds. The goal of Ignite Seattle is to inspire and educate the audience through fast-paced, engaging presentations on a wide range of topics, from technology and science to art and culture.
@@ -2183,7 +2184,7 @@ credits: [
     year: 2025,
     tags: ["Corporate", "Live Event"],
     embedUrl: "https://www.youtube.com/embed/oqSkg52y0h4",
-    thumbnailUrl: "/thumbnails/Ignite/IgniteSeattle_logo.jpg",
+    thumbnailUrl: "/thumbnails/Ignite/IgniteSeattle_48.jpg",
     description: "Ignite Seattle public speaking event",
     longDescriptionAfterMedia: true,
     longDescription: `Ignite Seattle is a non-profit organization that hosts events where speakers have five minutes to present on a topic they are passionate about, using 20 slides that auto-advance every 15 seconds. The goal of Ignite Seattle is to inspire and educate the audience through fast-paced, engaging presentations on a wide range of topics, from technology and science to art and culture.
@@ -2259,7 +2260,7 @@ credits: [
     year: 2025,
     tags: ["Corporate", "Live Event"],
     embedUrl: "https://www.youtube.com/embed/GDWu7m5leYQ",
-    thumbnailUrl: "/thumbnails/Ignite/IgniteSeattle_logo.jpg",
+    thumbnailUrl: "/thumbnails/Ignite/IgniteSeattle_49.jpg",
     description: "Ignite Seattle public speaking event",
     longDescriptionAfterMedia: true,
     longDescription: `Ignite Seattle is a non-profit organization that hosts events where speakers have five minutes to present on a topic they are passionate about, using 20 slides that auto-advance every 15 seconds. The goal of Ignite Seattle is to inspire and educate the audience through fast-paced, engaging presentations on a wide range of topics, from technology and science to art and culture.
@@ -2415,7 +2416,7 @@ credits: [
     year: 2024,
     tags: ["Original", "Parody"],
     embedUrl: "https://www.youtube.com/embed/5PzWgFLzkoc",
-    thumbnailUrl: "/thumbnails/TheAustinAwards.jpg",
+    thumbnailUrl: "/thumbnails/GrittyReboots/TheAustinAwards.jpg",
     description: "Awards show parody",
     longDescription: `Ladies and gentlemen... the first annual Austin Awards.
 
@@ -2475,6 +2476,45 @@ credits: [
   ],
   },
   {
+    title: "NASA | 2024 Total Solar Eclipse",
+    slug: makeSlug("NASA | 2024 Total Solar Eclipse"),
+    date: "2024-04-08",
+    year: 2024,
+    tags: ["Corporate", "Live Event", "Livestream"],
+    embedUrl: "https://www.youtube.com/embed/2MJY_ptQW1o",
+    thumbnailUrl: "/thumbnails/NASA_SolarEclipse2024.jpg",
+    description: "2024 Total Solar Eclipse: Through the Eyes of NASA",
+    longDescriptionAfterMedia: true,
+    longDescription: `On April 8th, 2024, a total solar eclipse moved across North America, traveling through Mexico, across the United States from Texas to Maine, and out across Canada’s Atlantic coast.
+    
+    We had the unique opportunity to set up a ground-based observation in Arkansas (second video above) and provide NASA with a 4K stream from our POV, to be used in their livestream of the cosmic event.
+    
+    The broadcast went on to [win an Emmy](https://www.nasa.gov/general/nasa-wins-second-emmy-award-for-2024-total-solar-eclipse-broadcast/) for Excellence in Production Technology, as it was the most complex live project ever produced by the agency. In total, NASA’s eclipse broadcasts garnered almost 40 million live and replay views across its own distribution channels, including on NASA+, the agency’s free streaming service. Externally, the agency’s main broadcast was picked up in 2,208 hits on 568 channels in 25 countries.`,
+
+    accolades: [
+    "Emmy Award for Excellence in Production Technology",
+  ],
+
+    credits: [
+    { role: "Produced by", name: "NASA" },
+    { role: "Arkansas site Camera Operator", name: "David Zimmermann" },
+    { role: "Tracking Equipment Operator", name: "Zev Hoover" },
+    { role: "Network Engineer", name: "Jonathan Taylor" },
+  ],
+  embedUrl: "https://www.youtube.com/embed/2MJY_ptQW1o",
+
+    videos: [
+      {
+        title: "2024 Total Solar Eclipse: Through the Eyes of NASA (Official Broadcast)",
+        embedUrl: "https://www.youtube.com/embed/2MJY_ptQW1o",
+      },
+      {
+        title: "4K HDR Total Solar Eclipse 2024 (Arkansas Site)",
+        embedUrl: "https://www.youtube.com/embed/jojefuqGFY0",
+      },
+    ],
+  },
+  {
     title: "Tesla | Semi & Roadster Unveil",
     slug: makeSlug("Tesla | Semi & Roadster Unveil"),
     date: "2017-12-14",
@@ -2502,7 +2542,7 @@ credits: [
     year: 2012,
     tags: ["Original", "Parody",],
     embedUrl: "https://www.youtube.com/embed/IMAZEW-cnr4",
-    thumbnailUrl: "/thumbnails/LaughPong_MemesOfTheInternet.jpg",
+    thumbnailUrl: "/thumbnails/LaughPong/MemesOfTheInternet.jpg",
     description: "Memes of the Internet",
     longDescription: `Inspired by Animaniacs - [Nations Of The World](https://tinyurl.com/47jm7563)`,
 
@@ -2518,4 +2558,248 @@ credits: [
     { role: "Announcer", name: "Chris Parker" },
   ],
   },
+  {
+    title: "Xbox | Partner Preview November 2025",
+    slug: makeSlug("Xbox | Partner Preview November 2025"),
+    date: "2025-11-20",
+    year: 2025,
+    tags: ["Corporate", "Presentation"],
+    embedUrl: "https://www.youtube.com/embed/HEqfGuuIhoE",
+    thumbnailUrl: "/thumbnails/Xbox/Xbox_PartnerPreview2025.jpg",
+    description: "Xbox Partner Preview November 2025",
+    longDescriptionAfterMedia: true,
+    longDescription: `Check out the recap and full presentation above of Xbox's latest Partner Preview, which highlighted 16 Xbox Play Anywhere titles from their amazing partners and 9 titles coming Day One to Xbox Game Pass Ultimate. In addition, new game reveals like Armatus, Raji: Kaliyuga, and Zoo Punk, as well as new Game Pass announcements, first looks at gameplay, brand new games Available Today, and much more.`,
+
+credits: [
+    { role: "Produced by", name: "Xbox" },
+    { role: "Editor", name: "David Zimmermann" },
+    { role: "Motion Graphics & Animation", name: "Frank Hernandez" },
+  ],
+
+    // ✅ add embedUrl so generic pages/cards don’t break
+    embedUrl: "https://www.youtube.com/embed/HEqfGuuIhoE",
+
+    videos: [
+      {
+        title: "Xbox Partner Preview | November 2025 - Recap",
+        embedUrl: "https://www.youtube.com/embed/HEqfGuuIhoE",
+      },
+      {
+        title: "Xbox Partner Preview | November 2025",
+        embedUrl: "https://www.youtube.com/embed/BgOiQPxEF-I",
+      },
+    ],
+  },
+  {
+    title: "Core Havn | Meet Core Havn",
+    slug: makeSlug("Core Havn | Meet Core Havn"),
+    date: "2025-09-08",
+    year: 2025,
+    tags: ["Corporate", " Commercial",],
+    embedUrl: "https://www.youtube.com/embed/n_NanK0Yr-8",
+    thumbnailUrl: "/thumbnails/CoreHavn.jpg",
+    description: "Core Havn welcome video",
+    longDescription: `Core Havn is a boutique fitness studio in the Seattle area (Mercer Island, Renton, Madison Park) offering low-impact, high-intensity strength training using specialized XFormer machines, blending Pilates principles with modern exercise science for full-body workouts focused on muscular strength, endurance, and mobility.
+    
+    They emphasize "Strong. Safe. Successful." with personalized attention in small classes, building core strength, balance, and lean muscle through challenging, results-driven, and efficient sessions. Check out more at [corehavn.com](https://corehavn.com/).`,
+
+credits: [
+    { role: "Produced by", name: "Rebel Clef Studios" },
+    { role: "Cinematography", name: "David Zimmermann" },
+    { role: "Editor", name: "David Zimmermann" },
+  ],
+  },
+  {
+    title: "Welcome to Nurturing Knowledge School",
+    slug: makeSlug("Welcome to Nurturing Knowledge School"),
+    date: "2025-09-25",
+    year: 2025,
+    tags: ["Corporate", "Commercial", "Series"],
+    embedUrl: "https://www.youtube.com/embed/Raa87pisfoI",
+    thumbnailUrl: "/thumbnails/NurturingKnowledgeSchool.jpg",
+    description: "Nurturing Knowledge School video series",
+    longDescriptionAfterMedia: true,
+    longDescription: `Nurturing Knowledge School (NKS) in Seattle offers Reggio Emilia-inspired preschool and school-age programs, fostering empowered, curious, and confident lifelong learners through child-centered, project-based learning in small, community-focused environments. They focus on nurturing wonder, self-expression, and deep understanding through emergent curricula, daily documentation, and innovative, inclusive settings that value each child as a capable, unique individual.
+    
+    [nurturingknowledge.com](https://nurturingknowledge.com/)`,
+
+credits: [
+    { role: "Produced by", name: "Rebel Clef Studios" },
+    { role: "Cinmetography", name: "David Zimmermann" },
+    { role: "Editor", name: "David Zimmermann" },
+  ],
+
+    // ✅ add embedUrl so generic pages/cards don’t break
+    embedUrl: "https://www.youtube.com/embed/Raa87pisfoI",
+
+    videos: [
+      {
+        title: "Welcome to Nurturing Knowledge School",
+        embedUrl: "https://www.youtube.com/embed/Raa87pisfoI",
+      },
+      {
+        title: "Nurturing Knowledge School: Our Days Together",
+        embedUrl: "https://www.youtube.com/embed/e8eZPxe0U4A",
+      },
+      {
+        title: "NKS: Bryant Campus Video Tour",
+        embedUrl: "https://www.youtube.com/embed/3ckI4IzyJjQ",
+      },
+      {
+        title: "NKS: Greenwood Campus Video Tour",
+        embedUrl: "https://www.youtube.com/embed/MmGS_U5fElQ",
+      },
+      {
+        title: "NKS: Maple Leaf North Campus Video Tour",
+        embedUrl: "https://www.youtube.com/embed/n-CdIMBOrxk",
+      },
+      {
+        title: "NKS: Maple Leaf South Campus Video Tour",
+        embedUrl: "https://www.youtube.com/embed/zswfnDMSMeA",
+      },
+      {
+        title: "NKS: Phinney Campus Video Tour",
+        embedUrl: "https://www.youtube.com/embed/agi7-Tfx4Ko",
+      },
+      {
+        title: "NKS: Woodland Park Main Campus Video Tour",
+        embedUrl: "https://www.youtube.com/embed/im__CFQhT04",
+      },
+      {
+        title: "NKS: Woodland Park 2nd Floor Campus Video Tour",
+        embedUrl: "https://www.youtube.com/embed/_MeWyIrwi_U",
+      },
+    ],
+  },
+  {
+    title: "Microsoft | Transforming Tumor Boards",
+    slug: makeSlug("Microsoft | Transforming Tumor Boards"),
+    date: "2025-06-17",
+    year: 2025,
+    tags: ["Corporate", "Interview",],
+    embedUrl: "https://www.youtube.com/embed/jeY8VUr3GmU",
+    thumbnailUrl: "/thumbnails/Microsoft/TumorBoards_AIAgents.jpg",
+    description: "AI Agents and the New Era of Personalized Cancer Care",
+    longDescription: `In this fireside chat, Shrey Jain, Product Lead of the Healthcare Agent Orchestrator, joins Eric Horvitz, Chief Scientific Officer at Microsoft, to explore how AI agents are revolutionizing personalized cancer care. They delve into the evolving role of tumor board meetings and demonstrate how the Healthcare Agent Orchestrator can streamline clinical workflows, enhance decision-making, and empower care teams with real-time, data-driven insights. Discover the future of oncology through the lens of intelligent collaboration.
+    
+    Learn more: [microsoft.com/multimodal-hls-foundation-models/](https://www.microsoft.com/en-us/research/project/multimodal-hls-foundation-models/)`,
+
+credits: [
+    { role: "Produced by", name: "Goodthings" },
+    { role: "Director of Photography", name: "David Zimmermann" },
+    { role: "Editing & Motion Graphics", name: "Goodthings" },
+    { role: "Assistant Editing", name: "David Zimmermann" },
+  ],
+  },
+  {
+    title: "The MINA Group | Anthem",
+    slug: makeSlug("The MINA Group | Anthem"),
+    date: "2025-09-04",
+    year: 2025,
+    tags: ["Corporate", "Commercial"],
+    embedUrl: "https://player.vimeo.com/video/1115995472?h=18d2ef9e83",
+    thumbnailUrl: "/thumbnails/TheMINAGroup.jpg",
+    description: "The MINA Group | Chef Michael Mina",
+    longDescription: `The MINA Group, founded by James Beard Award-winning Chef Michael Mina, is a San Francisco-based restaurant management company known for creating upscale, innovative dining experiences and managing numerous acclaimed restaurants (like Bourbon Steak) and virtual brands globally, focusing on chef-driven menus, exceptional service, and strategic partnerships, often with luxury hotels.
+    
+    They operate diverse concepts, from fine dining to casual spots, adapting menus and design to local tastes while expanding their portfolio through management agreements rather than outright ownership.
+    
+    Learn more at [theminagroup.com](https://www.theminagroup.com/)`,
+
+credits: [
+    { role: "Produced by", name: "Goodthings" },
+    { role: "Director of Photography", name: "David Zimmermann" },
+    { role: "Drone Operator", name: "David Zimmermann" },
+    { role: "Editing & Motion Graphics", name: "Goodthings" },
+    { role: "Assistant Editing", name: "David Zimmermann" },
+  ],
+},
+{
+    title: "Kenji Lopez-Alt | Cooking Videos",
+    slug: makeSlug("Kenji Lopez-Alt | Cooking Videos"),
+    date: "2025-10-17",
+    year: 2025,
+    tags: ["Series"],
+    embedUrl: "https://www.youtube.com/embed/RwNDUkt7cCM",
+    thumbnailUrl: "/thumbnails/Kenji/JKLA_logo.jpg",
+    description: "Kenji Lopez-Alt cooking series",
+    longDescriptionAfterMedia: true,
+    longDescription: `J. Kenji López-Alt is a renowned Japanese-American chef, food writer, and James Beard Award winner known for demystifying cooking science, evidenced in his [bestselling books](https://www.kenjilopezalt.com/books) The Food Lab and The Wok, and his popular [YouTube channel](https://www.youtube.com/@JKenjiLopezAlt).
+    
+    A former MIT graduate and Serious Eats editor, he now writes for The New York Times, hosts online content, co-owns Wursthall restaurant, and focuses on making home cooking more joyful and scientific, sharing his passion for food with millions.
+    
+    As a fellow Seattle resident, Kenji connected with us in late 2025, and we soon began producing his video content alongside our good friend and longtime collaborator, David Hudson.`,
+
+credits: [
+    { role: "Produced by", name: "Kenji Lopez-Alt, Lena Davidson" },
+    { role: "Supplemental Cinematography", name: "David Zimmermann" },
+    { role: "Editing", name: "David Hudson, David Zimmermann" },
+  ],
+
+    // ✅ add embedUrl so generic pages/cards don’t break
+    embedUrl: "https://www.youtube.com/embed/RwNDUkt7cCM",
+
+    videos: [
+      {
+        title: "I Designed A Knife! Introducing the KAN x Kenji Shitoku四徳, a brand new shape for all home cooks",
+        embedUrl: "https://www.youtube.com/embed/RwNDUkt7cCM",
+      },
+      {
+        title: "Making Dirty Mazemen with Sho Spaeth, Author of Homemade Ramen",
+        embedUrl: "https://www.youtube.com/embed/8MP1DTb3fBY",
+      },
+      {
+        title: "A Better Way to Roast Turkey",
+        embedUrl: "https://www.youtube.com/embed/fU5JE7KdSrE",
+      },
+      {
+        title: "How to Cook the Juiciest Beef Tenderloin",
+        embedUrl: "https://www.youtube.com/embed/wPbeYYur3tI",
+      },
+      {
+        title: "Non-stick Pan Comparison: Teflon vs. Cast Iron vs. Our Place Titanium Pro",
+        embedUrl: "https://www.youtube.com/embed/aXmKAsE3_Ec",
+      },
+    ],
+  },
+  {
+    title: "University of Warcraft",
+    slug: makeSlug("University of Warcraft"),
+    date: "2024-11-14",
+    year: 2024,
+    tags: ["Corporate", "Live Event"],
+    embedHtml: `<blockquote class="twitter-tweet" data-theme="dark" data-media-max-width="560"><p lang="en" dir="ltr">The Alliance is strong with this one. <a href="https://twitter.com/UW_Football?ref_src=twsrc%5Etfw">@UW_Football</a> x <a href="https://twitter.com/Warcraft?ref_src=twsrc%5Etfw">@Warcraft</a><a href="https://twitter.com/hashtag/TheWarWithin?src=hash&amp;ref_src=twsrc%5Etfw">#TheWarWithin</a> | <a href="https://twitter.com/hashtag/NoLimits?src=hash&amp;ref_src=twsrc%5Etfw">#NoLimits</a> <a href="https://t.co/g86A0i3d1U">pic.twitter.com/g86A0i3d1U</a></p>&mdash; Washington Athletics (@UWAthletics) <a href="https://twitter.com/UWAthletics/status/1856382358615928853?ref_src=twsrc%5Etfw">November 7, 2024</a></blockquote>`,
+    thumbnailUrl: "/thumbnails/UniversityOfWarcraft.webp",
+    description: "University of Warcraft",
+    longDescription: `The University of Washington partnered with Blizzard's World of Warcraft for its 20th anniversary, transforming the Huskies' final home football game (vs. UCLA) into a "University of Warcraft" event. This included custom logos, mascots leading the team, themed student giveaways, and player NIL deals for social media content, merging college sports with the iconic game for a unique fan experience.
+    
+    We had the unique opportunity to join the post-production team in creating a package of UW x Warcraft digital assets, to be used throughout the stadium on every banner and jumbo screen.
+    
+    Find out more about the collaboration [here](https://gohuskies.com/news/2024/11/14/football-world-of-warcraft).`,
+
+credits: [
+    { role: "Produced by", name: "Mighty Media" },
+    { role: "Editing & Motion Graphics", name: "Mighty Media" },
+    { role: "Additional Motion Graphics", name: "David Zimmermann" },
+  ],
+},
+{
+    title: "Cinesaurus Digs the Internet",
+    slug: makeSlug("Cinesaurus Digs the Internet"),
+    date: "2015-03-15",
+    year: 2015,
+    tags: ["Corporate", "Commercial"],
+    embedUrl: "https://www.youtube.com/embed/fSR5Rd4n7o8",
+    thumbnailUrl: "/thumbnails/Cinesaurus/DigsTheInternet.jpg",
+    description: "Cinesaurus nonprofit video giveaway",
+    longDescription: `We love creating online video content that gets seen by a lot of people, and we want to share our expertise in creative storytelling and savvy for marketing to aid your company's mission!
+    
+    Visit http://cinesaurus.com to learn more.`,
+
+credits: [
+    { role: "Produced by", name: "Cinesaurus" },
+    { role: "Editing & Motion Graphics", name: "Steven Hudson, David Hudson" },
+    { role: "Sound Design", name: "David Zimmermann" },
+  ],
+},
 ];

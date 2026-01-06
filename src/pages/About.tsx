@@ -1,10 +1,22 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import ViewCounter from "../components/ViewCounter";
 
 const CLIENT_LOGOS = [
-  "Amazon.png", "Deloitte.png", "Gates_Foundation.png", "IgniteSeattle_logo.png", "Microsoft.png", "NASA.webp",
-  "SawStop.webp", "TYRSport.png", "GeekWire.png", "WotC.png", "YouTube.png", "Xbox.png", "Tesla.png", 
+  "Deloitte.png",
+  "Microsoft.png",
+  "NASA.webp",
+  "YouTube.png",
+  "WotC.png",
+  "Xbox.png",
+  "KwikLok.png",
+  "IgniteSeattle_logo.png",
+  "Gates_Foundation.png",
+  "Tesla.png",
+  "SawStop.webp",
+  "GeekWire.png",
+  "TYRSport.png",
+  "Amazon.png",
 ];
 
 type ViewcountResponse = {
@@ -14,12 +26,14 @@ type ViewcountResponse = {
 export default function About() {
   const [y, setY] = useState(0);
 
-  // ✅ total views counter
+  // Total views counter
   const [views, setViews] = useState<number | null>(null);
   const [loadingViews, setLoadingViews] = useState(true);
-  const [fetchError, setFetchError] = useState<string | null>(null);
+
+  // Logo cloud reveal
   const [showLogos, setShowLogos] = useState(false);
 
+  // Scroll/parallax
   useEffect(() => {
     const onScroll = () => setY(window.scrollY || 0);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -27,6 +41,7 @@ export default function About() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Fetch view totals (same-origin to avoid CORS/preflight)
   useEffect(() => {
     let cancelled = false;
 
@@ -34,65 +49,11 @@ export default function About() {
       setLoadingViews(true);
 
       try {
-        // ✅ IMPORTANT:
-        // - localhost/127.0.0.1/*: try deployed Vercel
-        // - other hosts: try same-origin first, then fall back to Vercel
-        const origins: string[] = [];
-        const envBase =
-          typeof import.meta !== "undefined"
-            ? (import.meta as any).env?.VITE_VIEWCOUNT_BASE
-            : undefined;
-        if (envBase) origins.push(String(envBase).replace(/\/$/, ""));
+        const url = `/api/viewcount?t=${Date.now()}`;
+        const r = await fetch(url, { cache: "no-store" });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
 
-        const hostname =
-          typeof window !== "undefined" ? window.location.hostname : "";
-        const origin =
-          typeof window !== "undefined" ? window.location.origin : "";
-        const isLocalLike =
-          hostname === "localhost" ||
-          hostname === "127.0.0.1" ||
-          hostname.startsWith("192.168.") ||
-          hostname.endsWith(".local");
-
-        if (origin) origins.push(origin);
-        origins.push("https://rebelclefstudios.vercel.app");
-
-        let data: ViewcountResponse | null = null;
-        let lastErr: unknown;
-
-        for (const base of origins) {
-          try {
-            const url = `${base}/api/viewcount?t=${Date.now()}`;
-            const r = await fetch(url, {
-              mode: "cors",
-              cache: "no-store",
-              headers: {
-                "Cache-Control": "no-cache",
-                Pragma: "no-cache",
-              },
-            });
-
-            if (r.status === 304) throw new Error("304 (no body)");
-            if (!r.ok) {
-              const errBody = await r.json().catch(() => ({}));
-              throw new Error(errBody.error || `HTTP ${r.status}`);
-            }
-
-            data = (await r.json()) as ViewcountResponse;
-            lastErr = undefined;
-            break;
-          } catch (err) {
-            lastErr = err;
-            // If we're on a local-like host, skip same-origin failure quickly and fall through.
-            if (isLocalLike) continue;
-          }
-        }
-
-        if (!data) {
-          throw lastErr ?? new Error("Failed to load viewcount");
-        }
-
-        if (cancelled) return;
+        const data = (await r.json()) as ViewcountResponse;
 
         if (cancelled) return;
 
@@ -101,7 +62,6 @@ export default function About() {
       } catch (err) {
         if (cancelled) return;
         console.warn("viewcount fetch failed:", err);
-        setFetchError(String(err));
         setViews(null);
       } finally {
         if (cancelled) return;
@@ -114,52 +74,33 @@ export default function About() {
     };
   }, []);
 
+  // Reveal the logo cloud a moment after views load
   useEffect(() => {
-    if (views !== null) {
-      const t = setTimeout(() => setShowLogos(true), 3500);
-      return () => clearTimeout(t);
-    }
+    if (views == null) return;
+    const t = setTimeout(() => setShowLogos(true), 1800);
+    return () => clearTimeout(t);
   }, [views]);
 
   // Parallax tuning
-  const topParallax = y * 0.25; // slower movement
+  const topParallax = y * 0.25;
   const bottomParallax = y * 0.12;
 
-  // Calculate random positions for the logo cloud once
-  const logoCloud = useMemo(() => {
-    const w = 1000;
-    const h = 600;
-    const perimeter = (w + h) * 2;
-
-    return CLIENT_LOGOS.map((logo, i) => {
-      // Distribute evenly along the perimeter of a rectangle
-      // Offset by half a segment to center logos on the sides better
-      const d = ((i + 0.5) / CLIENT_LOGOS.length) * perimeter;
-      let x, y;
-
-      if (d < w) {
-        // Top edge
-        x = -w / 2 + d;
-        y = -h / 2;
-      } else if (d < w + h) {
-        // Right edge
-        x = w / 2;
-        y = -h / 2 + (d - w);
-      } else if (d < w * 2 + h) {
-        // Bottom edge
-        x = w / 2 - (d - (w + h));
-        y = h / 2;
-      } else {
-        // Left edge
-        x = -w / 2;
-        y = h / 2 - (d - (w * 2 + h));
-      }
+  // Calculate logo data
+  const logoData = useMemo(() => {
+    return CLIENT_LOGOS.map((logo) => {
+      let scale = 1;
+      if (logo.includes("KwikLok")) scale = 1.3;
+      else if (logo.includes("IgniteSeattle")) scale = 0.9;
+      else if (logo.includes("Microsoft")) scale = 1.3;
+      else if (logo.includes("NASA")) scale = 0.95;
+      else if (logo.includes("GeekWire")) scale = 1.25;
+      else if (logo.includes("Xbox")) scale = 1.15;
+      else if (logo.includes("Tesla")) scale = 1.2;
+      else if (logo.includes("YouTube")) scale = 1.1;
 
       return {
         src: `/logos/${logo}`,
-        x,
-        y,
-        scale: 1,
+        scale,
       };
     });
   }, []);
@@ -167,7 +108,7 @@ export default function About() {
   return (
     <div className="bg-white">
       {/* TOP FULLSCREEN IMAGE HERO */}
-      <section className="relative h-[100vh] w-full overflow-hidden">
+      <section className="relative h-[80vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/zimm-dolly.jpg"
@@ -182,60 +123,51 @@ export default function About() {
           <div className="absolute inset-0 bg-black/45" />
         </div>
 
-        <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
-          <div className="-translate-y-8 sm:-translate-y-10">
-            <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              {loadingViews ? (
-                "Loading…"
-              ) : views != null ? (
-                <div className="relative flex justify-center items-center">
-                  {/* Logo Cloud Background */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      width: 0,
-                      height: 0,
-                      zIndex: 0,
-                      pointerEvents: "none",
-                    }}
-                  >
-                    {logoCloud.map((item, i) => (
+        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-24 text-center sm:pt-36">
+          <div className="relative">
+            {loadingViews ? (
+              <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                Loading…
+              </h1>
+            ) : views != null ? (
+              <>
+                {/* Counter - Centered exactly where 'Loading...' was */}
+                <div className="relative z-10 origin-center scale-[0.65] sm:scale-[0.8] md:scale-100">
+                  <ViewCounter total={views} />
+                </div>
+
+                {/* Logos - Positioned absolutely below so they don't shift the center */}
+                <div className="absolute left-1/2 top-full mt-8 w-[90vw] max-w-7xl -translate-x-1/2 sm:mt-12">
+                  <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 [--base-w:5rem] sm:[--base-w:6rem] md:[--base-w:7rem] lg:[--base-w:120px]">
+                    {logoData.map((item, i) => (
                       <img
-                        key={i}
+                        key={item.src}
                         src={item.src}
                         alt=""
+                        className="transition-all duration-[2000ms] ease-out"
                         style={{
-                          position: "absolute",
-                          left: 0,
-                          top: 0,
-                          width: "200px",
-                          maxWidth: "none",
+                          width: `calc(var(--base-w) * ${item.scale})`,
+                          height: "auto",
                           opacity: showLogos ? 1 : 0,
-                          transition: "opacity 1.5s ease-out, transform 1.5s ease-out",
+                          transform: `scale(${showLogos ? 1 : 0.8})`,
                           transitionDelay: `${i * 50}ms`,
-                          transform: `translate(-50%, -50%) translate(${item.x}px, ${item.y}px) scale(${showLogos ? item.scale : 0.8})`,
                         }}
                       />
                     ))}
                   </div>
-                  <div className="relative z-10">
-                    <ViewCounter total={views} />
-                  </div>
                 </div>
-              ) : (
-                <span title={fetchError || "Error loading views"}>
-                  views and counting… {fetchError && <span className="text-sm text-red-500 block opacity-50">(API Error)</span>}
-                </span>
-              )}
-            </h1>
+              </>
+            ) : (
+              <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                Views and counting…
+              </h1>
+            )}
           </div>
         </div>
       </section>
 
       {/* TEXT BLOCK BETWEEN IMAGES */}
-      <section className="mx-auto max-w-4xl px-6 py-4 sm:py-8">
+      <section className="mx-auto max-w-4xl px-6 py-6 sm:py-10">
         <div className="space-y-6 text-base leading-[1.75] text-zinc-700 sm:text-lg">
           <p>
             From a young age, David Zimmermann was determined to become either a
@@ -254,7 +186,7 @@ export default function About() {
               href="https://cinesaurus.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-4 decoration-zinc-400 hover:decoration-zinc-900 transition-colors"
+              className="underline underline-offset-4 decoration-zinc-400 transition-colors hover:decoration-zinc-900"
             >
               Cinesaurus
             </a>
@@ -265,24 +197,24 @@ export default function About() {
               href="https://www.youtube.com/@GrittyReboots"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-4 decoration-zinc-400 hover:decoration-zinc-900 transition-colors"
+              className="underline underline-offset-4 decoration-zinc-400 transition-colors hover:decoration-zinc-900"
             >
               Gritty Reboots
             </a>
             . To this day, their work has been shared by millions around the
-            globe, and accumulated well over 500 million views.
+            globe, and accumulated well over half a billion views.
           </p>
         </div>
       </section>
 
       {/* BOTTOM FULLSCREEN IMAGE CTA */}
-      <section className="relative h-[100vh] w-full overflow-hidden">
+      <section className="relative h-[80vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/SpaceX-wide.jpg"
             alt=""
             className="h-full w-full object-cover"
-            style={{ transform: `translateY(${bottomParallax}px) scale(1.12)` }}
+            style={{ transform: `translateY(${bottomParallax - 100}px) scale(1.12)` }}
           />
           <div className="absolute inset-0 bg-black/45" />
         </div>
@@ -304,7 +236,7 @@ export default function About() {
                 uppercase tracking-widest
                 text-white
                 transition-all duration-300
-                hover:bg-white hover:text-black hover:border-white hover:-translate-y-[1px]
+                hover:bg-[#1841aa] hover:text-white hover:border-[#1841aa] hover:scale-[1.05]
               "
             >
               Contact Us

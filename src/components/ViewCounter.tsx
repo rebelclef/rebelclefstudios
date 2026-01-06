@@ -56,7 +56,7 @@ function RollingDigit({ value, delay }: { value: number; delay: number }) {
 }
 
 export default function ViewCounter({ total }: { total: number }) {
-  const [count, setCount] = useState(() => Math.max(0, total - 200));
+  const [count, setCount] = useState(total);
   const [showText, setShowText] = useState(false);
 
   useEffect(() => {
@@ -65,18 +65,12 @@ export default function ViewCounter({ total }: { total: number }) {
   }, []);
 
   useEffect(() => {
-    // Allow the initial "scroll from 0" to finish before catching up to the real total
-    const t = setTimeout(() => setCount(total), 2000);
-    return () => clearTimeout(t);
-  }, [total]);
-
-  useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
 
     const loop = () => {
-      const nextDelay = Math.random() * 3000 + 2000; // 2-5 seconds
+      const nextDelay = Math.random() * 2000 + 3000; // 3-5 seconds
       timeout = setTimeout(() => {
-        const increment = Math.floor(Math.random() * 10) + 1; // 1-10 views
+        const increment = Math.floor(Math.random() * 7) + 1; // 1-7 views
         setCount((prev) => prev + increment);
         loop();
       }, nextDelay);
@@ -100,9 +94,11 @@ export default function ViewCounter({ total }: { total: number }) {
         alignItems: "center",
         fontWeight: "bold",
         lineHeight: 1,
+        color: "white",
+        whiteSpace: "nowrap",
       }}
     >
-      <div style={{ display: "flex", fontSize: "4.5rem", fontFamily: "monospace" }}>
+      <div style={{ display: "flex", fontSize: "4.5rem", fontVariantNumeric: "tabular-nums" }}>
         {chars.map((char, index) => {
           if (/[0-9]/.test(char)) {
             return (

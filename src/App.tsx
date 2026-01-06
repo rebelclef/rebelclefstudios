@@ -38,9 +38,10 @@ export default function App() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [isHome]);
 
-  // Close mobile menu on route change
+  // Close mobile menu on route change + reset scroll
   useEffect(() => {
     setMenuOpen(false);
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [location.pathname]);
 
   // Close mobile menu with ESC

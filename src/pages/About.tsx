@@ -9,14 +9,14 @@ const CLIENT_LOGOS = [
   "YouTube.png",
   "WotC.png",
   "Xbox.png",
-  "KwikLok.png",
+  "TYRSport.png",
   "IgniteSeattle_logo.png",
   "Gates_Foundation.png",
   "Tesla.png",
+  "JKLA.png",
   "SawStop.webp",
   "GeekWire.png",
-  "TYRSport.png",
-  "Amazon.png",
+  "KwikLok.png",
 ];
 
 type ViewcountResponse = {

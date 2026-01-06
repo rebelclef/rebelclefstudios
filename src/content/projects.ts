@@ -2802,4 +2802,23 @@ credits: [
     { role: "Sound Design", name: "David Zimmermann" },
   ],
 },
+{
+    title: "ADC Wastewater & Membrane Bioreactors",
+    slug: makeSlug("ADC Wastewater & Membrane Bioreactors"),
+    date: "2022-08-25",
+    year: 2022,
+    tags: ["Corporate", "Commercial"],
+    embedUrl: "https://www.youtube.com/embed/_Y4w-ygCTKI",
+    thumbnailUrl: "/thumbnails/ADCWastewater.jpg",
+    description: "ADC Wastewater & Membrane Bioreactors: Your Future. Reclaimed.",
+    longDescription: `Packaged MBR treatment plants are flexible, cost-effective, compact, and produce effluent superior to most any other treatment process. The plants are engineered in-house by the manufacturer. This frees up ADC to focus on overall strategy and permitting, and frees up your bottom line by not paying for engineering you don’t have to.
+    
+    Bonus: Installation is fast and simple. 90% of the treatment plant components are pre-built right onto a skid that is delivered to your project site, ready to plug-and-play.`,
+
+credits: [
+    { role: "Produced by", name: "Rebel Clef Studios" },
+    { role: "Cinematography", name: "David Zimmermann" },
+    { role: "Editing", name: "David Zimmermann" },
+  ],
+},
 ];

@@ -94,7 +94,7 @@ export default function App() {
               <img
                 src="/logo.png"
                 alt="Rebel Clef Studios"
-                className="h-12 w-auto"
+                className="h-12 w-auto shrink-0"
               />
             </Link>
           </div>
@@ -113,7 +113,7 @@ export default function App() {
           </nav>
 
           {/* Right: Mobile menu button */}
-          <div className="flex flex-1 justify-end md:hidden">
+          <div className="ml-auto flex justify-end md:hidden">
             <button
               type="button"
               aria-label={menuOpen ? "Close menu" : "Open menu"}

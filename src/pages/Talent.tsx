@@ -189,7 +189,7 @@ function PhotoCarousel({ photos }: { photos: TalentPhoto[] }) {
   );
 
   return (
-    <div className="grid h-full grid-rows-[1fr_auto] gap-2">
+    <div className="grid aspect-[3/4] h-full grid-rows-[1fr_auto] gap-2 lg:aspect-auto">
       {/* Main image area */}
       <div className="min-h-0">
         {current.href ? (

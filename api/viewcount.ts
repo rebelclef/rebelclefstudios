@@ -11,7 +11,48 @@ function uniq<T>(arr: T[]) {
  * add them here as raw YouTube video IDs (NOT full URLs).
  * Example: "dQw4w9WgXcQ"
  */
-const EXTRA_YOUTUBE_VIDEO_IDS: string[] = ["d9aqUMgVbSc", "GuearVDInrs", "8_XMCSEYL6g", "d9aqUMgVbSc", "P7q-5skWSi0", "9eUzwJsFmmU", "72XhdVqDT1g", "8avQkpnpaXs", "i0Xu6EN6mlQ", "QFvNhsWMU0c", "SD7MLlilrv4", "oh6pEcQlumc", "w4bBSDP6KoM", "20HUfIC2IC4", "jojefuqGFY0"];
+const EXTRA_YOUTUBE_VIDEO_IDS: string[] = [
+  "d9aqUMgVbSc", // Siri, will you marry me?
+  "GuearVDInrs", // HARLEM SHAKE (CIRCUS PARTY)
+  "8_XMCSEYL6g", // Dragon Shout (Skyrim Parody)
+  "P7q-5skWSi0", // Giga Pudding (Spoof)
+  "9eUzwJsFmmU", // Star Trek Chatroulette
+  "72XhdVqDT1g", // Artemis Bridge Simulator Gameplay
+  "8avQkpnpaXs", // Inception Spoof (A Gross Misuse of Inception)
+  "i0Xu6EN6mlQ", // Halo Kinect
+  "QFvNhsWMU0c", // We're NASA and We Know It (Mars Curiosity)
+  "SD7MLlilrv4", // TrapWire Kickstarter -- Donate Today!
+  "oh6pEcQlumc", // PAX Prime Cosplay: You Know You're a Geek When...
+  "w4bBSDP6KoM", // YOLO: Adult Edition
+  "20HUfIC2IC4", // Best Virgin Galactic Video Ever
+  "bSgX8BZAL5I", // Top 12 Coke Zero Movie Deaths
+  "3zKBNMFvSeg", // The Gum Boys Take Ireland
+  "1iCV-TccN_A", // Gritty Reboots | Actiongram BTS
+  "7LnUOjgXPZw", // Gritty Reboots July 2016 Update | Actiongram video
+  "W6P5cL1kpZc", // Star Wars: The Force Awakens Trailer (LUKE SKYWALKER SPOTTED!)
+  "XHA6kZMl5i8", // AFTER EFFECTS WORLD 2014
+  "vY5SwAjooJg", // UPDATE! Adventure Time, Job Hunters, VidCon & More!
+  "sWcKtJj5_oY", // Xbox One: A Space Odyssey (Parody) | Gritty Reboots
+  "2VYZQux7Oso", // Xbox One BTS
+  "DMhvROALYAo", // Xbox One VFX B&A
+  "ZOQp--b2SNI", // Dramatic Reenactment of Super Bowl XLVIII (Broncos vs Seahawks Parody)
+  "4t1JxutNy_U", // Gritty Reboots Updates! VidCon + Web Series
+  "Ea3DXxMmQOM", // Know Your Meme: Pedobear
+  "Ggl2voBzeS8", // Know Your Meme: Ermahgerd
+  "nC4_kNgsl4c", // Know Your Meme: Rage Comics
+  "v87S6UOf8_o", // Know Your Meme: 60's Spider-Man
+  "xbdp4vFx8Rg", // Know Your Meme: Minecraft
+  "uYAah3VzvYY", // Know Your Meme: Futurama
+  "ucoU0c5kvZw", // Know Your Meme: Philosoraptor
+  "13nHKH1m-xA", // Know Your Meme: Skyrim Catchphrases
+  "hQJGZRAvWm0", // Know Your Meme: Guile's Theme
+  "ISb0sdWVNjA", // Know Your Meme: Friend-Zoned
+  "yjcUS1XOplk", // Know Your Meme: Introduction to Pokémon Memes (Part I)
+  "km5NUgcoLn4", // Know Your Meme: Introduction to Pokémon Memes (Part II)
+  "1duRXM9_D2s", // Know Your Meme: The Cinnamon Challenge
+  "DU9HqfNBdIk", // Know Your Meme: Pepper Spray Cop
+  "CT2rr0Otyto", // Know Your Meme: A SOPA/PIPA PSA
+];
 
 /**
  * If you want extra playlist IDs counted (optional).

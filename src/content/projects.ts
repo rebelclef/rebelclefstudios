@@ -624,6 +624,14 @@ credits: [
         },
       ],
     },
+    {
+      title: "Bus Stop Battle (MOGA Final Round)",
+      videos: [
+        {
+          embedUrl: "https://www.youtube.com/embed/HZaiWn-P12U",
+        },
+      ],
+    },
   ],
   },
   {
@@ -744,7 +752,7 @@ credits: [
 
 Creating a twisted adaptation of the children's story "If You Give A Mouse A Cookie" by Laura Numeroff was a ton of fun. We had just purchased a DJI Ronin (3-axis camera gimbal stabilizer) only days before this shoot, and decided to give ourselves a crash course… by designing a video that would consist of one continuous take. After hours of rehearsal on set, we knocked out the shoot over the course of the day, finishing just before sundown.  If you’ve ever held a fully-kitted gimbal stabilizer, you’ll know the pain of shooting with one for an entire day. Thankfully, this project won us a Best Cinematography award at the Bleedingham horror film festival… which helped offset the back pain. :D
 
-Check out the behind the scenes video for an in-depth look on how we pulled this all together:`,
+Check out the behind-the-scenes video for an in-depth look on how we pulled this all together:`,
 
 accolades: [
     "Best Cinematography – Bleedingham Horror Film Festival",
@@ -778,6 +786,174 @@ credits: [
       videos: [
         {
           embedUrl: "https://www.youtube.com/embed/3p0j6z8w2Bg",
+        },
+      ],
+    },
+  ],
+  },
+  {
+    title: "Don't Starve: The Gritty Reboot",
+    slug: makeSlug("Don't Starve: The Gritty Reboot"),
+    date: "2016-11-16",
+    year: 2016,
+    tags: ["Original", "Parody", "Gritty Reboots"],
+    embedUrl: "https://www.youtube.com/embed/tYPwGLcaH0w",
+    thumbnailUrl: "/thumbnails/GrittyReboots/DontStarve.jpg",
+    description: "Live-action Don't Starve parody trailer",
+    longDescription: `Transported into a mysterious wilderness, five strangers and a scheming magician must survive a dark nightmarish world of magic or starve trying...
+    
+    We had a blast working with Klei Entertainment to reimagine their uncompromising survival game as a dark live-action trailer.
+    
+    Check out the behind-the-scenes to see how it all came together.`,
+
+credits: [
+    { role: "Produced by", name: "Cinesaurus" },
+    { role: "Director of Photography", name: "David Zimmermann" },
+    { role: "Editor", name: "David Zimmermann" },
+    { role: "Visual Effects", name: "Gabe Conroy, Steven Hudson, David Hudson, David Zimmermann" },
+    { role: "Additional VFX", name: "Kial Natale" },
+    { role: "Color Grading", name: "David Zimmermann" },
+    { role: "Music by", name: "Andy Forsberg" },
+    { role: "Sound by", name: "Hexany Audio" }, 
+    { role: "Art Department", name: "Jenn Godwin" },
+    { role: "Assistant Director", name: "Danielle Sparks" },
+    { role: "Makeup", name: "Mallory Shoemaker" },
+    { role: "Costumes", name: "Brigid Lohman" },
+  ],
+
+  cast: [
+    { role: "Wilson", name: "Forest Gibson" },
+    { role: "Wendy", name: "Kristina Horner" },
+    { role: "Willow", name: "Tara Theoharis" },
+    { role: "Maxwell", name: "Alexander Theorharis" },
+    { role: "Wickerbottom", name: "Meagan Karimi-Naser" },
+    { role: "Woody", name: "Drew Barth" },
+    { name: "Special thanks to the Leo family for their nightmarish, hellish backyard!" },
+  ],
+
+  videoSections: [
+    {
+      title: "Behind The Scenes",
+      videos: [
+        {
+          embedUrl: "https://www.youtube.com/embed/hoonOG9Ku5I",
+        },
+      ],
+    },
+    {
+      title: "Visual Effects: Before & After",
+      videos: [
+        {
+          embedUrl: "https://www.youtube.com/embed/4GCJMuwhrcY",
+        },
+      ],
+    },
+  ],
+  },
+  {
+    title: "Gritty Reboots | Grand Theft Auto V: Lucid",
+    slug: makeSlug("Gritty Reboots | Grand Theft Auto V: Lucid"),
+    date: "2013-09-16",
+    year: 2013,
+    tags: ["Original", "Parody", "Gritty Reboots"],
+    embedUrl: "https://www.youtube.com/embed/0Eo9XX3-8-k",
+    thumbnailUrl: "/thumbnails/GrittyReboots/GTAVLucid.jpg",
+    description: "Live-action GTA V short",
+    longDescription: `Grand Theft Auto V features a connected experience between three main characters: Michael, Trevor, and Franklin. But it turns out that their connection is much deeper than a couple robbery jobs together...
+    
+    Check out the behind-the-scenes to see how it all came together, as well as the visual effects 'before & after' below!`,
+
+credits: [
+    { role: "Produced by", name: "Cinesaurus" },
+    { role: "Written by", name: "Steven Hudson, David Hudson" },
+    { role: "Co-directed by", name: "David Hudson, Forest Gibson" },
+    { role: "Editor", name: "David Zimmermann" },
+    { role: "Visual Effects", name: "Steven Hudson" },
+    { role: "Sound Design", name: "David Zimmermann" },
+    { role: "Color Grading", name: "David Hudson" },
+    { role: "Script Supervisor", name: "Edwin Bailey" },
+    { role: "Production Assistants", name: "Riley O'Callaghan, Brigid Lohman" }, 
+    { name: "Special thanks to Garr and Dannie Godfrey and UW Sigma Nu." },
+  ],
+
+  cast: [
+    { role: "Michael", name: "Rick Walters" },
+    { role: "Trevor", name: "Jason Pead" },
+    { role: "Franklin", name: "Charles Harris-White" },
+    { role: "Mob Boss", name: "Chris Parker" },
+    { role: "Therapist", name: "Alexander Theoharis" },
+    { role: "Michael's Wife", name: "Tara Theoharis" },
+    { role: "Dope slinger", name: "David Rittenhouse" },
+    { role: "The King", name: "Michael Hudson" },
+    { role: "All The King's Men", name: "David Hudson, Matt Morris" },
+    { role: "Girl (dead)", name: "Megan Renee Reed" },
+    { role: "News Anchor", name: "Satabdi Chakrabarti" },
+  ],
+
+  videoSections: [
+    {
+      title: "Behind The Scenes",
+      videos: [
+        {
+          embedUrl: "https://www.youtube.com/embed/8U9ypzckakk",
+        },
+      ],
+    },
+    {
+      title: "Visual Effects: Before & After",
+      videos: [
+        {
+          embedUrl: "https://www.youtube.com/embed/AW65u7a46Cs",
+        },
+      ],
+    },
+  ],
+  },
+  {
+    title: "Naruto The Movie! (Official Fake Trailer)",
+    slug: makeSlug("Naruto The Movie! (Official Fake Trailer)"),
+    date: "2013-08-04",
+    year: 2013,
+    tags: ["Original", "Parody",],
+    embedUrl: "https://www.youtube.com/embed/FEo2ipzypTQ",
+    thumbnailUrl: "/thumbnails/GrittyReboots/Naruto.webp",
+    description: "Live-action Naruto parody trailer",
+    longDescription: `Created as part of YouTube’s Geek Week, our longtime collaborators Portal A were tasked with creating a “Naruto Fake Movie Trailer” for YouTuber Ryan Higa. The project was filmed on location in Japan, including rice fields, iconic temples, and YouTube Space in Tokyo.
+
+After returning to Seattle, Cinesaurus jumped into the post-production of the trailer. Creating visual effects that met the expectations of Naruto fans required us to deep dive the original show and fully understand the design of its characters and their ninja powers. The amount of creative effort we put into bringing a cartoon to real-life for the first time paid off as the video has been viewed nearly 25 million times and was by far the most watched piece of Geek Week.
+
+Our visual effects were a vital part in bringing Naruto to life. In our Before & After featurette below, check out how our design transformed the original footage. From CG animation of energy balls to the set extension for Hokage Rock — a Mount Rushmore of ninjas! — we used our own ninja powers in over 75 VFX shots.`,
+
+credits: [
+    { role: "Written by", name: "Ryan Higa" },
+    { role: "RHPC", name: "Greg Saniatan, Will Shahan, Sean Fujiyoshi" },
+    { role: "Produced by", name: "Portal A" },
+    { role: "Director", name: "Kai Hasson" },
+    { role: "Executive Producers", name: "Nate Houghteling, Zach Blume, Kai Hasson" },
+    { role: "Post Production by", name: "Cinesaurus aka Gritty Reboots" },
+    { role: "Director of Photography", name: "Catherine Goldschmidt" },
+    { role: "Producer", name: "Jeff Winkler" },
+    { role: "Associate Producer", name: "Jeffrey Sabin-Matsumoto" },
+    { role: "Music", name: "Joachim Horsely" }, 
+    { role: "Sound Design", name: "Brent Kiser" },
+    { role: "Color Grading", name: "Prehistoric Digital" },
+    { name: "A Special Thanks to SET Japan" },
+  ],
+
+  cast: [
+    { role: "Naruto", name: "Ryan Higa" },
+    { role: "Sakura", name: "Asahi Sasaki" },
+    { role: "Sasuke", name: "Orson Mochizuki" },
+    { role: "Rock Lee", name: "Kenroku" },
+    { role: "Shikamaru", name: "Sean Fujiyoshi" },
+  ],
+
+  videoSections: [
+    {
+      title: "Visual Effects: Before & After",
+      videos: [
+        {
+          embedUrl: "https://www.youtube.com/embed/cZhVSvp1Sks",
         },
       ],
     },

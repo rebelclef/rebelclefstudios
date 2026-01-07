@@ -92,7 +92,7 @@ export default function Work() {
 
   return (
     <div className="min-h-screen bg-[#1841aa]">
-      <div className="mx-auto max-w-6xl px-6 py-4 sm:py-6">
+      <div className="mx-auto max-w-6xl px-6 pt-8 pb-4 sm:pt-12 sm:pb-6">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <img
           src="/text/work.png"

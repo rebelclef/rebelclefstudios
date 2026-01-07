@@ -287,7 +287,7 @@ export default function Talent() {
 
   return (
     <section className="min-h-screen bg-[#1841aa]">
-      <div className="mx-auto max-w-6xl px-6 py-4 sm:py-6">
+      <div className="mx-auto max-w-6xl px-6 pt-8 pb-4 sm:pt-12 sm:pb-6">
         <header className="mx-auto max-w-3xl text-center">
           <img
             src="/text/talent.png"

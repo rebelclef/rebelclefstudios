@@ -96,7 +96,7 @@ export default function Press() {
   ];
 
   return (
-    <section className="min-h-screen bg-[#1841aa] py-4 sm:py-6">
+    <section className="min-h-screen bg-[#1841aa] pt-8 pb-4 sm:pt-12 sm:pb-6">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <img

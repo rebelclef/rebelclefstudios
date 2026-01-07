@@ -1,6 +1,6 @@
 export default function Reel() {
   return (
-    <div className="bg-[#1841aa] py-4 sm:py-6">
+    <div className="bg-[#1841aa] pt-8 pb-4 sm:pt-12 sm:pb-6">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-2xl text-center">
           <img

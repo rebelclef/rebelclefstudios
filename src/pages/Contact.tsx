@@ -59,7 +59,7 @@ export default function Contact() {
       className="min-h-[100vh] w-full"
       style={{ backgroundColor: "#1841aa" }}
     >
-      <div className="mx-auto max-w-6xl px-6 py-4 sm:py-6">
+      <div className="mx-auto max-w-6xl px-6 pt-8 pb-4 sm:pt-12 sm:pb-6">
         <div className="text-center">
           <img
             src="/text/get-after-it.png"

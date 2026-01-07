@@ -1,6 +1,6 @@
 export default function ZimmBuilds() {
   return (
-    <div className="mx-auto max-w-5xl px-6 pb-16 pt-8 text-center">
+    <div className="mx-auto max-w-5xl px-6 pb-16 pt-12 text-center">
       <h1 className="text-4xl font-semibold tracking-tight text-zinc-900">
         Thanks for your purchase!
       </h1>

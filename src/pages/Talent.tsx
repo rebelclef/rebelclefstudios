@@ -307,9 +307,14 @@ export default function Talent() {
               <article className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-12 lg:items-stretch">
                 {/* Portrait */}
                 <div className="lg:col-span-4">
-                  <a href={t.portraitHref} target="_blank" rel="noreferrer">
+                  <a
+                    href={t.portraitHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block"
+                  >
                     <div className="overflow-hidden rounded-2xl bg-white/10">
-                      <div className="relative aspect-[3/4] w-full">
+                      <div className="relative aspect-[3/4] w-full min-h-[320px]">
                         <img
                           src={t.portraitUrl}
                           alt={t.name}

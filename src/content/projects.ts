@@ -640,7 +640,8 @@ credits: [
     date: "2013-12-11",
     year: 2013,
     tags: ["Original", "Parody"],
-    embedUrl: "https://www.youtube.com/embed/H7jtC8vjXw8",
+    embedUrl: "https://www.youtube.com/embed/uKy_l_Zvov4",
+    // ACTUAL url: https://www.youtube.com/embed/H7jtC8vjXw8
     thumbnailUrl: "/thumbnails/YouTubeRewind_2013.webp",
     description: "YouTube's 2013 Recap",
     longDescription: `What does 2013 say? YouTube answered this question by releasing a mashup of popular music, movies, memes, and more that made up the year.
@@ -984,7 +985,8 @@ credits: [
     date: "2015-12-09",
     year: 2015,
     tags: ["Original", "Parody"],
-    embedUrl: "https://www.youtube.com/embed/KK9bwTlAvgo",
+    embedUrl: "https://www.youtube.com/embed/_EGZMJKNl8M",
+    // ACTUAL url: https://www.youtube.com/embed/KK9bwTlAvgo
     thumbnailUrl: "/thumbnails/YouTubeRewind_2015.webp",
     description: "YouTube's 2015 Recap",
     longDescription: `Another year, another YouTube Rewind. 2015 was our most ambitious yet, adding motion capture to our tool belt, in addition to the usual motion graphics and compositing required for the project.
@@ -1144,7 +1146,8 @@ credits: [
     date: "2016-12-07",
     year: 2016,
     tags: ["Original", "Parody"],
-    embedUrl: "https://www.youtube.com/embed/_GuOjXYl5ew",
+    embedUrl: "https://www.youtube.com/embed/-L4P7t1QsHQ",
+    // ACTUAL url: https://www.youtube.com/embed/_GuOjXYl5ew
     thumbnailUrl: "/thumbnails/YouTubeRewind_2016.webp",
     description: "YouTube's 2016 Recap",
     longDescription: `YouTube Rewind is a project that gets perpetually bigger in scope and view count year after year. With over 110 visual effects shots, 2016’s video included creating a [PPAP](https://www.youtube.com/watch?v=Ct6BUPvE2sM) tunnel, a collage of beat ‘em up video game effects, a massive Olympics running track, and transforming a London train yard into a construction scene a la Fifth Harmony’s “[Work from Home](https://www.youtube.com/watch?v=5GL9JoH4Sws).” Oh, and not to mention a little touch-up beautification of everyone’s (come on, admit it) favorite star, Dwayne “The Rock” Johnson.

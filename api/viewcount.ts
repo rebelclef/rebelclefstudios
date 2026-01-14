@@ -275,7 +275,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       vimeoToken ? fetchVimeoViews(vimeoIds, vimeoToken) : Promise.resolve(0),
     ]);
 
-    const total = ytTotal + vmTotal;
+    // Manual offset for private/unlisted videos not counted by APIs.
+    const MANUAL_VIEW_OFFSET = 520_000_000;
+    const total = ytTotal + vmTotal + MANUAL_VIEW_OFFSET;
 
     // Cache at edge so you don't burn API quota on every page load
     res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate=86400");

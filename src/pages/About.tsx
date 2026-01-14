@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import ViewCounter from "../components/ViewCounter";
+import useIsMobile from "../hooks/useIsMobile";
 
 const CLIENT_LOGOS = [
   "Deloitte.png",
@@ -32,35 +33,20 @@ export default function About() {
 
   // Logo cloud reveal
   const [showLogos, setShowLogos] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
 
   // Scroll/parallax
   useEffect(() => {
+    if (isMobile) {
+      setY(0);
+      return;
+    }
+
     const onScroll = () => setY(window.scrollY || 0);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 639px)");
-    const update = () => setIsMobile(mq.matches);
-    update();
-
-    if (mq.addEventListener) {
-      mq.addEventListener("change", update);
-    } else {
-      mq.addListener(update);
-    }
-
-    return () => {
-      if (mq.removeEventListener) {
-        mq.removeEventListener("change", update);
-      } else {
-        mq.removeListener(update);
-      }
-    };
-  }, []);
+  }, [isMobile]);
 
   // Fetch view totals (same-origin to avoid CORS/preflight)
   useEffect(() => {
@@ -132,11 +118,11 @@ export default function About() {
       <section className="relative h-[70vh] w-full overflow-hidden sm:h-[80vh]">
         <div className="absolute inset-0">
           <img
-            src="/zimm-flip.jpg"
+            src={isMobile ? "/zimm-flip_mobile.jpg" : "/zimm-flip.jpg"}
             alt=""
             className="h-full w-full object-cover object-[center_35%]"
             style={{
-              transform: `translateY(${topParallax}px) scale(${isMobile ? 0.97 : 1})`,
+              transform: isMobile ? "none" : `translateY(${topParallax}px) scale(1)`,
               filter: showLogos ? "blur(5px)" : "none",
               transition: "filter 1.5s ease-out",
             }}

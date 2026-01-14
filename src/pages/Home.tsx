@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { projects } from "../content/projects";
+import useIsMobile from "../hooks/useIsMobile";
 
 function clamp(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
@@ -10,6 +11,7 @@ export default function Home() {
   const [reelOpen, setReelOpen] = useState(false);
   const [showText, setShowText] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const isMobile = useIsMobile();
 
   // Parallax refs
   const heroSectionRef = useRef<HTMLElement | null>(null);
@@ -77,15 +79,14 @@ export default function Home() {
     const HERO_DRIFT_PX = 70; // try 40 for subtler, 90 for stronger
     const BOTTOM_DRIFT_PX = 50;
 
+    if (isMobile) {
+      if (heroLayerRef.current) heroLayerRef.current.style.transform = "none";
+      if (bottomLayerRef.current) bottomLayerRef.current.style.transform = "none";
+      return;
+    }
+
     const update = () => {
       rafRef.current = null;
-
-      // Disable parallax on mobile
-      if (window.innerWidth < 640) {
-        if (heroLayerRef.current) heroLayerRef.current.style.transform = "none";
-        if (bottomLayerRef.current) bottomLayerRef.current.style.transform = "none";
-        return;
-      }
 
       const vh = window.innerHeight || 1;
 
@@ -134,7 +135,7 @@ export default function Home() {
         rafRef.current = null;
       }
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div>

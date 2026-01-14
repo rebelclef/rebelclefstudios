@@ -79,6 +79,14 @@ export default function Home() {
 
     const update = () => {
       rafRef.current = null;
+
+      // Disable parallax on mobile
+      if (window.innerWidth < 640) {
+        if (heroLayerRef.current) heroLayerRef.current.style.transform = "none";
+        if (bottomLayerRef.current) bottomLayerRef.current.style.transform = "none";
+        return;
+      }
+
       const vh = window.innerHeight || 1;
 
       // HERO drift based on hero’s position in viewport (0..1 while visible)

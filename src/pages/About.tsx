@@ -103,8 +103,8 @@ export default function About() {
   }, [views]);
 
   // Parallax tuning
-  const topParallax = y * 0.25;
-  const bottomParallax = y * 0.12;
+  const topParallax = isMobile ? 0 : y * 0.25;
+  const bottomParallax = isMobile ? 0 : y * 0.12;
 
   // Calculate logo data
   const logoData = useMemo(() => {
@@ -235,7 +235,7 @@ export default function About() {
             src="/zimm-lapel.jpg"
             alt=""
             className="h-full w-full object-cover object-[center_40%] sm:object-center"
-            style={{ transform: `translateY(${bottomParallax - 180}px) scale(1.12)` }}
+            style={{ transform: isMobile ? "none" : `translateY(${bottomParallax - 180}px) scale(1.12)` }}
           />
           <div className="absolute inset-0 bg-black/45" />
         </div>

@@ -276,7 +276,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     ]);
 
     // Manual offset for private/unlisted videos not counted by APIs.
-    const MANUAL_VIEW_OFFSET = 520_000_000;
+    const MANUAL_VIEW_OFFSET = 500_000_000;
     const total = ytTotal + vmTotal + MANUAL_VIEW_OFFSET;
 
     // Cache at edge so you don't burn API quota on every page load

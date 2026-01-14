@@ -105,7 +105,7 @@ export default function Home() {
         const y = (p - 0.5) * BOTTOM_DRIFT_PX;
         bottomLayerRef.current.style.transform = `translate3d(0, ${Math.round(
           y
-        )}px, 0) scale(1.12)`;
+        )}px, 0) scale(1.04)`;
       }
     };
 
@@ -121,7 +121,10 @@ export default function Home() {
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
-      if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+      if (rafRef.current != null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
     };
   }, []);
 

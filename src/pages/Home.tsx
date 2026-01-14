@@ -307,9 +307,9 @@ export default function Home() {
             className="absolute inset-0 will-change-transform"
           >
             <img
-              src="/SpaceX-wide.jpg"
+              src="/SpaceX_BTS.jpg"
               alt=""
-              className="h-full w-full object-cover object-[center_45%]"
+              className="h-full w-full object-cover object-[center_43%]"
             />
           </div>
           <div className="absolute inset-0 bg-black/40" />

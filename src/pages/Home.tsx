@@ -318,7 +318,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-6 py-20 sm:py-40">
+        <div className="relative mx-auto max-w-6xl px-6 py-16 sm:py-40">
           <div className="mx-auto max-w-3xl">
             <p className="text-center text-2xl font-light leading-relaxed text-white sm:text-3xl">
               Rebel Clef is an award-winning creative studio passionate

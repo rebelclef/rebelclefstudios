@@ -32,6 +32,7 @@ export default function About() {
 
   // Logo cloud reveal
   const [showLogos, setShowLogos] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Scroll/parallax
   useEffect(() => {
@@ -39,6 +40,26 @@ export default function About() {
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+
+    if (mq.addEventListener) {
+      mq.addEventListener("change", update);
+    } else {
+      mq.addListener(update);
+    }
+
+    return () => {
+      if (mq.removeEventListener) {
+        mq.removeEventListener("change", update);
+      } else {
+        mq.removeListener(update);
+      }
+    };
   }, []);
 
   // Fetch view totals (same-origin to avoid CORS/preflight)
@@ -115,7 +136,7 @@ export default function About() {
             alt=""
             className="h-full w-full object-cover object-[center_35%]"
             style={{
-              transform: `translateY(${topParallax}px)`,
+              transform: `translateY(${topParallax}px) scale(${isMobile ? 0.97 : 1})`,
               filter: showLogos ? "blur(5px)" : "none",
               transition: "filter 1.5s ease-out",
             }}
@@ -123,7 +144,7 @@ export default function About() {
           <div className="absolute inset-0 bg-black/45" />
         </div>
 
-        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-24 text-center sm:pt-36">
+        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-12 text-center sm:pt-36">
           <div className="relative">
             {loadingViews ? (
               <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
@@ -132,12 +153,12 @@ export default function About() {
             ) : views != null ? (
               <>
                 {/* Counter - Centered exactly where 'Loading...' was */}
-                <div className="relative z-10 origin-center scale-[0.65] sm:scale-[0.8] md:scale-100">
+                <div className="relative z-10 origin-center scale-[0.65] sm:scale-[0.8] md:scale-100 -mt-2 sm:mt-0">
                   <ViewCounter total={views} />
                 </div>
 
                 {/* Logos - Positioned absolutely below so they don't shift the center */}
-                <div className="absolute left-1/2 top-full mt-8 w-[90vw] max-w-7xl -translate-x-1/2 sm:mt-12">
+                <div className="absolute left-1/2 top-full mt-6 w-[90vw] max-w-7xl -translate-x-1/2 sm:mt-12">
                   <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 [--base-w:5rem] sm:[--base-w:6rem] md:[--base-w:7rem] lg:[--base-w:120px]">
                     {logoData.map((item, i) => (
                       <img
@@ -213,13 +234,13 @@ export default function About() {
           <img
             src="/zimm-lapel.jpg"
             alt=""
-            className="h-full w-full object-cover"
-            style={{ transform: `translateY(${bottomParallax - 100}px) scale(1.12)` }}
+            className="h-full w-full object-cover object-[center_40%] sm:object-center"
+            style={{ transform: `translateY(${bottomParallax - 180}px) scale(1.12)` }}
           />
           <div className="absolute inset-0 bg-black/45" />
         </div>
 
-        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+        <div className="relative z-10 flex h-full flex-col items-center justify-center px-2 text-center sm:px-6">
           <h2 className="text-5xl font-semibold tracking-tight text-white sm:text-6xl">
             Let’s jam.
           </h2>

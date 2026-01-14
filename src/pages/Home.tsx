@@ -306,17 +306,21 @@ export default function Home() {
             ref={bottomLayerRef}
             className="absolute inset-0 will-change-transform"
           >
-            <img src="/home-bottom.jpg" alt="" className="h-full w-full object-cover" />
+            <img
+              src="/SpaceX-wide.jpg"
+              alt=""
+              className="h-full w-full object-cover object-[center_45%]"
+            />
           </div>
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
+        <div className="relative mx-auto max-w-6xl px-6 py-32 sm:py-40">
           <div className="mx-auto max-w-3xl">
             <p className="text-center text-2xl font-light leading-relaxed text-white sm:text-3xl">
-              Rebel Clef is an Emmy award-winning creative agency passionate about
-              visual storytelling. Stay grounded or take flight with us and let’s
-              create something to be proud of.
+              Rebel Clef is an award-winning creative studio passionate
+              about visual storytelling. Stay grounded or take flight
+              with us and let’s create something to be proud of.
             </p>
 
             <div className="mt-10 flex justify-center">

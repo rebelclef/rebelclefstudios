@@ -111,11 +111,11 @@ export default function About() {
       <section className="relative h-[80vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/zimm-dolly.jpg"
+            src="/zimm-flip.jpg"
             alt=""
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-[center_35%]"
             style={{
-              transform: `translateY(${topParallax}px) scale(1.12)`,
+              transform: `translateY(${topParallax}px)`,
               filter: showLogos ? "blur(5px)" : "none",
               transition: "filter 1.5s ease-out",
             }}
@@ -211,7 +211,7 @@ export default function About() {
       <section className="relative h-[80vh] w-full overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/SpaceX-wide.jpg"
+            src="/zimm-lapel.jpg"
             alt=""
             className="h-full w-full object-cover"
             style={{ transform: `translateY(${bottomParallax - 100}px) scale(1.12)` }}

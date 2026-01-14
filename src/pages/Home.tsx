@@ -312,13 +312,13 @@ export default function Home() {
             <img
               src="/SpaceX_wide.jpg"
               alt=""
-              className="h-full w-full object-cover object-[60%_50%] sm:object-[center_50%]"
+              className="h-full w-full object-cover object-[80%_50%] scale-[0.95] sm:scale-100 sm:object-[center_50%]"
             />
           </div>
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-6 py-32 sm:py-40">
+        <div className="relative mx-auto max-w-6xl px-6 py-20 sm:py-40">
           <div className="mx-auto max-w-3xl">
             <p className="text-center text-2xl font-light leading-relaxed text-white sm:text-3xl">
               Rebel Clef is an award-winning creative studio passionate

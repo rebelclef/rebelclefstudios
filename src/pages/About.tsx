@@ -108,7 +108,7 @@ export default function About() {
   return (
     <div className="bg-white">
       {/* TOP FULLSCREEN IMAGE HERO */}
-      <section className="relative h-[80vh] w-full overflow-hidden">
+      <section className="relative h-[70vh] w-full overflow-hidden sm:h-[80vh]">
         <div className="absolute inset-0">
           <img
             src="/zimm-flip.jpg"

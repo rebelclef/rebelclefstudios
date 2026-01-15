@@ -130,8 +130,8 @@ export default function About() {
           <div className="absolute inset-0 bg-black/45" />
         </div>
 
-        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-12 text-center lg:pt-36">
-          <div className="relative translate-y-4 sm:translate-y-0">
+        <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
+          <div className="flex w-full max-w-6xl flex-col items-center justify-center gap-6 sm:gap-8 md:gap-10">
             {loadingViews ? (
               <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
                 Loading…
@@ -139,27 +139,30 @@ export default function About() {
             ) : views != null ? (
               <>
                 {/* Counter - Centered exactly where 'Loading...' was */}
-                <div className="relative z-10 origin-center scale-[0.65] sm:scale-[0.8] md:scale-100 -mt-2 sm:mt-0">
+                <div className="relative z-10 origin-center scale-[0.62] sm:scale-[0.8] md:scale-100">
                   <ViewCounter total={views} />
                 </div>
 
-                {/* Logos - Positioned absolutely below so they don't shift the center */}
-                <div className="absolute left-1/2 top-full mt-6 w-[90vw] max-w-7xl -translate-x-1/2 lg:mt-12">
-                  <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 [--base-w:5rem] sm:[--base-w:6rem] md:[--base-w:7rem] lg:[--base-w:120px]">
+                <div className="w-full max-w-7xl px-6 sm:px-10 lg:px-16">
+                  <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-6 sm:gap-x-8 sm:gap-y-8 md:gap-x-10 md:gap-y-10 [--base-w:clamp(6rem,10vw,9rem)]">
                     {logoData.map((item, i) => (
-                      <img
+                      <div
                         key={item.src}
-                        src={item.src}
-                        alt=""
-                        className="transition-all duration-[2000ms] ease-out"
-                        style={{
-                          width: `calc(var(--base-w) * ${item.scale})`,
-                          height: "auto",
-                          opacity: showLogos ? 1 : 0,
-                          transform: `scale(${showLogos ? 1 : 0.8})`,
-                          transitionDelay: `${i * 50}ms`,
-                        }}
-                      />
+                        className="flex basis-1/4 justify-center sm:basis-1/5 lg:basis-[14.2857%]"
+                      >
+                        <img
+                          src={item.src}
+                          alt=""
+                          className="transition-all duration-[2000ms] ease-out"
+                          style={{
+                            width: `calc(var(--base-w) * ${item.scale})`,
+                            height: "auto",
+                            opacity: showLogos ? 1 : 0,
+                            transform: `scale(${showLogos ? 1 : 0.8})`,
+                            transitionDelay: `${i * 50}ms`,
+                          }}
+                        />
+                      </div>
                     ))}
                   </div>
                 </div>

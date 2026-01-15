@@ -246,7 +246,7 @@ export default function Talent() {
         portraitHref: "https://www.instagram.com/_angelinamaria_/",
         stats: [
           ["Height", "5’6”"],
-          ["Ethnicity", "Ambiguous, Hispanic/Latino"],
+          ["Ethnicity", "Ambiguous, Hispanic"],
           ["Age Range", "25–35"],
           ["Dress", "4 US"],
           ["Shoe", "8.5 US"],
@@ -304,9 +304,9 @@ export default function Talent() {
         <div className="mt-12 space-y-14">
           {talent.map((t, idx) => (
             <FadeInSection key={t.name} delayMs={idx * 80}>
-              <article className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-12 lg:items-stretch">
+              <article className="mx-auto grid max-w-5xl gap-6 grid-cols-1 sm:grid-cols-12 lg:gap-8 lg:items-stretch">
                 {/* Portrait */}
-                <div className="lg:col-span-4">
+                <div className="col-span-1 sm:col-span-7 lg:col-span-4">
                   <a
                     href={t.portraitHref}
                     target="_blank"
@@ -314,7 +314,7 @@ export default function Talent() {
                     className="block"
                   >
                     <div className="overflow-hidden rounded-2xl bg-white/10">
-                      <div className="relative aspect-[3/4] w-full min-h-[320px]">
+                      <div className="relative aspect-[3/4] w-full sm:min-h-[320px]">
                         <img
                           src={t.portraitUrl}
                           alt={t.name}
@@ -327,11 +327,11 @@ export default function Talent() {
                 </div>
 
                 {/* Stats */}
-                <div className="lg:col-span-3">
-                  <h2 className="text-2xl font-medium tracking-tight text-white">
+                <div className="col-span-1 text-left sm:col-span-5 lg:col-span-3">
+                  <h2 className="mb-4 text-2xl font-medium tracking-tight text-white">
                     {t.name}
                   </h2>
-                  <dl className="mt-5 grid gap-y-3">
+                  <dl className="mt-1 grid grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-1 sm:gap-y-3">
                     {t.stats.map(([label, value]) => (
                       <div key={label}>
                         <dt className="text-[11px] uppercase tracking-[0.22em] text-blue-200">
@@ -344,7 +344,7 @@ export default function Talent() {
                 </div>
 
                 {/* Carousel */}
-                <div className="lg:col-span-5">
+                <div className="col-span-1 sm:col-span-12 lg:col-span-5">
                   <PhotoCarousel photos={t.photos} />
                 </div>
               </article>

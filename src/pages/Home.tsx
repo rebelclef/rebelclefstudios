@@ -321,7 +321,7 @@ export default function Home() {
             <img
               src="/SpaceX_wide.jpg"
               alt=""
-              className="h-full w-full object-cover object-[80%_50%] scale-[0.98] sm:scale-100 sm:object-[center_50%]"
+              className="h-full w-full object-cover object-[80%_50%] scale-100 sm:object-[center_50%]"
             />
           </div>
           <div className="absolute inset-0 bg-black/40" />

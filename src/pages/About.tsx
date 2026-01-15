@@ -130,8 +130,8 @@ export default function About() {
           <div className="absolute inset-0 bg-black/45" />
         </div>
 
-        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-12 text-center sm:pt-36">
-          <div className="relative">
+        <div className="relative z-10 flex h-full flex-col items-center justify-start px-6 pt-12 text-center lg:pt-36">
+          <div className="relative translate-y-4 sm:translate-y-0">
             {loadingViews ? (
               <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
                 Loading…
@@ -144,7 +144,7 @@ export default function About() {
                 </div>
 
                 {/* Logos - Positioned absolutely below so they don't shift the center */}
-                <div className="absolute left-1/2 top-full mt-6 w-[90vw] max-w-7xl -translate-x-1/2 sm:mt-12">
+                <div className="absolute left-1/2 top-full mt-6 w-[90vw] max-w-7xl -translate-x-1/2 lg:mt-12">
                   <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 [--base-w:5rem] sm:[--base-w:6rem] md:[--base-w:7rem] lg:[--base-w:120px]">
                     {logoData.map((item, i) => (
                       <img
@@ -215,18 +215,23 @@ export default function About() {
       </section>
 
       {/* BOTTOM FULLSCREEN IMAGE CTA */}
-      <section className="relative h-[80vh] w-full overflow-hidden">
+      <section className="relative flex h-[60vh] w-full items-center justify-center overflow-hidden sm:h-[65vh]">
         <div className="absolute inset-0">
           <img
             src="/zimm-lapel.jpg"
             alt=""
-            className="h-full w-full object-cover object-[center_40%] sm:object-center"
-            style={{ transform: isMobile ? "none" : `translateY(${bottomParallax - 180}px) scale(1.12)` }}
+            className="h-full w-full object-cover"
+            style={{
+              objectPosition: isMobile ? "50% 10%" : "50% 40%",
+              transform: isMobile
+                ? "translateY(-16px) scale(1.12)"
+                : `translateY(${bottomParallax - 180}px) scale(1.12)`,
+            }}
           />
           <div className="absolute inset-0 bg-black/45" />
         </div>
 
-        <div className="relative z-10 flex h-full flex-col items-center justify-center px-2 text-center sm:px-6">
+        <div className="relative z-10 flex flex-col items-center px-2 py-6 text-center sm:px-6 sm:py-8">
           <h2 className="text-5xl font-semibold tracking-tight text-white sm:text-6xl">
             Let’s jam.
           </h2>

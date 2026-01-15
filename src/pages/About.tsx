@@ -218,17 +218,15 @@ export default function About() {
       </section>
 
       {/* BOTTOM FULLSCREEN IMAGE CTA */}
-      <section className="relative flex h-[60vh] w-full items-center justify-center overflow-hidden sm:h-[65vh]">
+      <section className="relative flex w-full items-center justify-center overflow-hidden py-24 sm:py-40 lg:py-56 xl:py-64">
         <div className="absolute inset-0">
           <img
             src="/zimm-lapel.jpg"
             alt=""
             className="h-full w-full object-cover"
             style={{
-              objectPosition: isMobile ? "50% 10%" : "50% 40%",
-              transform: isMobile
-                ? "translateY(-16px) scale(1.12)"
-                : `translateY(${bottomParallax - 180}px) scale(1.12)`,
+              objectPosition: "50% 45%",
+              transform: "scale(1.12)",
             }}
           />
           <div className="absolute inset-0 bg-black/45" />

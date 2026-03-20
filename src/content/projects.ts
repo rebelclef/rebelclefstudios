@@ -3003,6 +3003,24 @@ credits: [
   ],
 },
 {
+    title: "Slate | Insights and Recommendations",
+    slug: makeSlug("Slate Insights and Recommendations"),
+    date: "2024-02-29",
+    year: 2024,
+    tags: ["Corporate", "Commercial"],
+    embedUrl: "https://www.youtube.com/embed/jmJSkks9hHs",
+    thumbnailUrl: "/thumbnails/Slate.jpg",
+    description: "A New Way to Build",
+    longDescription: `Construction is a messy business but what if you could visualize, query, analyze and action your data by tapping into your teams collective wisdom and organizational knowledge to improve decision making? What if your disjointed data streams were integrated into a single source of project intelligence for the whole team?
+
+Want to learn more about how slate can help you and your organization reach their goals? Visit www.slate.ai to schedule a demo today! [slate.ai](https://slate.ai/)`,
+
+credits: [
+    { role: "Produced by", name: "Goodthings" },
+    { role: "Supplemental Cinematography", name: "David Zimmermann" },
+  ],
+},
+{
     title: "Cinesaurus Digs the Internet",
     slug: makeSlug("Cinesaurus Digs the Internet"),
     date: "2015-03-15",

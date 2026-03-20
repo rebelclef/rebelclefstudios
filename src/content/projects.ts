@@ -2939,6 +2939,46 @@ credits: [
         title: "Non-stick Pan Comparison: Teflon vs. Cast Iron vs. Our Place Titanium Pro",
         embedUrl: "https://www.youtube.com/embed/aXmKAsE3_Ec",
       },
+      {
+        title: "I Make Spam Fried Rice in my New Wok",
+        embedUrl: "https://www.youtube.com/embed/JzccAFXcTqE",
+      },
+      {
+        title: "For Better Baked Ziti, Don't Boil Your Pasta: Soak It.",
+        embedUrl: "https://www.youtube.com/embed/AODAwMANijw",
+      },
+      {
+        title: "This Aromatic Sichuan Oil is the Gateway to Flavor",
+        embedUrl: "https://www.youtube.com/embed/sb502xDisuA",
+      },
+      {
+        title: "How to Make the Crispiest General Tso's Chicken at Home",
+        embedUrl: "https://www.youtube.com/embed/aiyD-FbSZE0",
+      },
+      {
+        title: "Frozen Scallion Pancakes Make Great Breakfast Sandwiches",
+        embedUrl: "https://www.youtube.com/embed/ZxIzsV-IFJI",
+      },
+      {
+        title: "This Spinach and Chickpea Stew is my Go-To Crowd Pleaser",
+        embedUrl: "https://www.youtube.com/embed/1DWB1EOLw_s",
+      },
+      {
+        title: "This Easy Lentil Soup is Just the Beginning",
+        embedUrl: "https://www.youtube.com/embed/5C-dVEt4_pM",
+      },
+      {
+        title: "Cooking Memelas with Bricia Lopez",
+        embedUrl: "https://www.youtube.com/embed/dnLFYpecHho",
+      },
+      {
+        title: "I Answer All Your Wok Questions",
+        embedUrl: "https://www.youtube.com/embed/bXwLmZBa0Lo",
+      },
+      {
+        title: "Making Mama’s Kotleti with Polina Chesnakova",
+        embedUrl: "https://www.youtube.com/embed/12_llkHO7jI",
+      },
     ],
   },
   {
@@ -3000,4 +3040,84 @@ credits: [
     { role: "Editing", name: "David Zimmermann" },
   ],
 },
+{
+    title: "Ignite Seattle 50",
+    slug: makeSlug("Ignite Seattle 50"),
+    date: "2026-03-10",
+    year: 2026,
+    tags: ["Corporate", "Live Event"],
+    embedUrl: "https://www.youtube.com/embed/f82GbD2PmXQ",
+    thumbnailUrl: "/thumbnails/Ignite/IgniteSeattle_50.jpg",
+    description: "Ignite Seattle public speaking event",
+    longDescriptionAfterMedia: true,
+    longDescription: `Ignite Seattle is a non-profit organization that hosts events where speakers have five minutes to present on a topic they are passionate about, using 20 slides that auto-advance every 15 seconds. The goal of Ignite Seattle is to inspire and educate the audience through fast-paced, engaging presentations on a wide range of topics, from technology and science to art and culture.
+
+Ignite Seattle events are held regularly throughout the year and feature a diverse lineup of speakers from various backgrounds and industries. The events are open to the public and provide an opportunity for attendees to learn something new, connect with like-minded individuals, and be inspired by the creativity and passion of the speakers.
+    
+    [igniteseattle.com](https://igniteseattle.com/)`,
+
+credits: [
+    { role: "Live Event Production", name: "Rebel Clef Studios" },
+    { role: "Technical Director", name: "David Zimmermann" },
+    { role: "Editor", name: "David Zimmermann" },
+  ],
+
+    // ✅ add embedUrl so generic pages/cards don’t break
+    embedUrl: "https://www.youtube.com/embed/f82GbD2PmXQ",
+
+    videos: [
+      {
+        title: "Ignite Seattle #50 - Full Livestream",
+        embedUrl: "https://www.youtube.com/embed/f82GbD2PmXQ",
+      },
+      {
+        title: "Are We Alone? Searching for Aliens | James Davenport",
+        embedUrl: "https://www.youtube.com/embed/V9lGPrwO9Yg",
+      },
+      {
+        title: "Wrangling the Most Deadly Animal in the World | Cassandra Fieldson",
+        embedUrl: "https://www.youtube.com/embed/zUIhH-9Jgbo",
+      },
+      {
+        title: "Silence Is Not a Mistake | Suhani Kakkar",
+        embedUrl: "https://www.youtube.com/embed/lblITSq05Xo",
+      },
+      {
+        title: "The Little Free Failure of Capitalism | Brendan O’Connor",
+        embedUrl: "https://www.youtube.com/embed/WXBNpPX4mIk",
+      },
+      {
+        title: "From a Jail Cell to the Moon—Almost | Emmanuel Rodriguez",
+        embedUrl: "https://www.youtube.com/embed/3NrjifISPQU",
+      },
+      {
+        title: "Make Your Own Pet Rock | Sarah Outhwaite",
+        embedUrl: "https://www.youtube.com/embed/Y6bZoTKKVUM",
+      },
+      {
+        title: "Pretty Little Thing: The Wife of a Rumrunner | Rebecca Demarest",
+        embedUrl: "https://www.youtube.com/embed/Zy-Y1bD63ms",
+      },
+      {
+        title: "How to Fight the Power Like a Salvadoran Feminist | Rachel Bowen",
+        embedUrl: "https://www.youtube.com/embed/C71VJvYfR48",
+      },
+      {
+        title: "My Dad the Bank Robber | Amanda Harvey",
+        embedUrl: "https://www.youtube.com/embed/QyLzoyLv1Eg",
+      },
+      {
+        title: "Winning on Jeopardy When You Don’t Know a Lot of Trivia | Mehal Shah",
+        embedUrl: "https://www.youtube.com/embed/mvzN1aRa9Jw",
+      },
+      {
+        title: "She Told Me What Would Have Changed Everything | Felice Upton",
+        embedUrl: "https://www.youtube.com/embed/SWGHRB3dkps",
+      },
+      {
+        title: "My First Ignite Talk Gave Me Friends and Enemies | Tricia Aung",
+        embedUrl: "https://www.youtube.com/embed/Ef1FFmvmgGo",
+      },
+    ],
+  },
 ];

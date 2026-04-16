@@ -3138,4 +3138,23 @@ credits: [
       },
     ],
   },
+  {
+    title: "ABC Legal & Gridiron",
+    slug: makeSlug("ABC Legal & Gridiron"),
+    date: "2026-03-16",
+    year: 2026,
+    tags: ["Corporate", "Commercial"],
+    embedUrl: "https://player.vimeo.com/video/1171187086?h=cdf81125c6",
+    thumbnailUrl: "/thumbnails/GridironABC.jpg",
+    description: "ABC Legal & Gridiron: Winning Together",
+    longDescription: `ABC Legal supports law firms, corporations, and government entities in executing time-sensitive legal workflows with speed, compliance, and scale through service of process, eFiling, and appearance counsel through its Docketly brand. Established in 1974 and headquartered in Seattle, Washington, ABC Legal operates a tech-enabled platform that connects over 29,000 clients with 8,000+ process servers across all 50 states and 88 countries worldwide.
+    
+    [gridironcapital.com](https://gridironcapital.com/company/abclegalservices/)`,
+
+credits: [
+    { role: "Produced by", name: "Rebel Clef Studios" },
+    { role: "Cinematography (ABC Legal footage)", name: "David Zimmermann" },
+    { role: "Editing", name: "David Zimmermann" },
+  ],
+},
 ];
